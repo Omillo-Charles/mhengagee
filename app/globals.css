@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-R.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-RI.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-B.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-BI.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-M.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-MI.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-L.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-LI.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-Th.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Colors deduced from brand images */
+  --color-primary: #2D5BFF;
+  --color-secondary: #D62976;
+  --color-accent-orange: #FA7E1E;
+  --color-accent-yellow: #FCAF45;
+  --color-accent-cyan: #00CCFF;
+  --color-navy: #1E293B;
+  --color-background: #0F172A;
+  --color-foreground: #F8FAFC;
+  
+  --font-sans: "Ubuntu", "Inter", "Arial", "Helvetica", sans-serif;
+  
+  /* Custom Animations */
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0F172A;
+  
+  /* Brand Gradient deduced from logo circular spectrum */
+  --brand-gradient: conic-gradient(
+    from 180deg at 50% 50%,
+    #2D5BFF 0deg,
+    #00CCFF 72deg,
+    #FCAF45 144deg,
+    #FA7E1E 216deg,
+    #D62976 288deg,
+    #2D5BFF 360deg
+  );
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0F172A;
+    --foreground: #F8FAFC;
   }
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom utility for the brand gradient background */
+.bg-brand-gradient {
+  background: var(--brand-gradient);
+}
+
+.text-gradient {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-morphism-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Blur main content when menu is open */
+body.menu-open main {
+  filter: blur(40px);
+  pointer-events: none;
+  transition: filter 0.4s ease;
 }
