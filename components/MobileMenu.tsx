@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 interface MobileMenuProps {
@@ -11,6 +12,8 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, setIsOpen, navLinks }: MobileMenuProps) {
+  const pathname = usePathname();
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -48,23 +51,30 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }: MobileMenuPr
 
                 {/* Navigation Links */}
                 <div className="flex flex-col space-y-2">
-                  {navLinks.map((link, i) => (
-                    <motion.div
-                      key={link.name}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.05 * i }}
-                    >
-                      <Link 
-                        href={link.href}
-                        onClick={() => setIsOpen(false)}
-                        className="flex items-center justify-between rounded-xl p-4 text-sm font-bold tracking-widest uppercase text-white/50 transition-all hover:bg-white/5 hover:text-white"
+                  {navLinks.map((link, i) => {
+                    const isActive = pathname === link.href;
+                    return (
+                      <motion.div
+                        key={link.name}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.05 * i }}
                       >
-                        {link.name}
-                        <div className="h-1.5 w-1.5 rounded-full bg-primary opacity-0 transition-all group-hover:opacity-100" />
-                      </Link>
-                    </motion.div>
-                  ))}
+                        <Link 
+                          href={link.href}
+                          onClick={() => setIsOpen(false)}
+                          className={`flex items-center justify-between rounded-xl p-4 text-sm font-bold tracking-widest uppercase transition-all ${
+                            isActive ? "bg-white/5 text-white" : "text-white/50 hover:bg-white/5 hover:text-white"
+                          }`}
+                        >
+                          {link.name}
+                          <div className={`h-1.5 w-1.5 rounded-full bg-primary transition-all ${
+                            isActive ? "opacity-100" : "opacity-0"
+                          }`} />
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
                 </div>
 
                 {/* Divider */}

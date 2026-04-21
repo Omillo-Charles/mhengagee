@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import ServicesCarousel from "@/components/ServicesCarousel";
+import ImageCarousel from "@/components/ImageCarousel";
+import Image from "next/image";
 
 export default function Page() {
   return (
@@ -104,6 +106,9 @@ export default function Page() {
       <div className="relative z-20 -mt-[1px]">
         <ServicesCarousel />
       </div>
+
+      {/* ───── IMAGE CAROUSEL ───── */}
+      <ImageCarousel />
 
       {/* ───── ABOUT SECTION ───── */}
       <section className="relative z-10 bg-background pb-24 sm:pb-32 pt-12 sm:pt-16">

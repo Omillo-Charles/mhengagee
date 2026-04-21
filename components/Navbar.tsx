@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
@@ -17,6 +18,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (isOpen) {
@@ -53,16 +55,25 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden space-x-10 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="group relative text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 transition-all hover:text-white"
-            >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 h-[1px] w-0 bg-primary transition-all group-hover:w-full" />
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`group relative text-[10px] font-bold tracking-[0.2em] uppercase transition-all ${
+                  isActive ? "text-white" : "text-white/40 hover:text-white"
+                }`}
+              >
+                {link.name}
+                <span 
+                  className={`absolute -bottom-1 left-0 h-[1px] bg-primary transition-all ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`} 
+                />
+              </Link>
+            );
+          })}
         </div>
 
         {/* Desktop CTA */}
