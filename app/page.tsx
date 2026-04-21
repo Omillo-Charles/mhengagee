@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ServicesCarousel from "@/components/ServicesCarousel";
 
 export default function Page() {
   return (
@@ -98,8 +99,14 @@ export default function Page() {
           </motion.div>
         </div>
       </section>
+
+      {/* ───── SERVICES MARQUEE ───── */}
+      <div className="relative z-20 -mt-[1px]">
+        <ServicesCarousel />
+      </div>
+
       {/* ───── ABOUT SECTION ───── */}
-      <section className="relative z-10 bg-background pb-24 sm:pb-32">
+      <section className="relative z-10 bg-background pb-24 sm:pb-32 pt-12 sm:pt-16">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
