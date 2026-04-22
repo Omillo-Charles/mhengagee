@@ -10,7 +10,7 @@ export default function AboutPage() {
       <div className="container mx-auto px-6">
 
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center lg:gap-24">
-          
+
           {/* Text Side */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -23,19 +23,19 @@ export default function AboutPage() {
               <span className="h-2 w-2 rounded-full bg-primary" />
               <span className="text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase">Our Story</span>
             </div>
-            
+
             <h2 className="mb-8 text-4xl font-black tracking-tighter text-white sm:text-5xl md:text-6xl">
               Elevating Brands Through <span className="text-gradient">Visual Excellence.</span>
             </h2>
-            
+
             <p className="mb-6 text-lg leading-relaxed text-white/60">
               Mhengagee Media is a creative powerhouse based in Nairobi. We specialize in cinematic storytelling, blending art and technology to create visual identities that demand attention.
             </p>
-            
+
             <p className="mb-10 text-lg leading-relaxed text-white/60">
               Whether it's a high-end commercial campaign, live event coverage, or a complete brand overhaul, our approach is simple: we deliver outstanding, undeniable quality without compromise.
             </p>
-            
+
           </motion.div>
 
           {/* Images Side */}
@@ -48,10 +48,10 @@ export default function AboutPage() {
           >
             {/* Main Background Image */}
             <div className="absolute right-0 top-0 h-[80%] w-[85%] overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-2xl">
-              <Image 
-                src="/images/IMG_6493.jpg.jpeg" 
-                alt="Mhengagee Media Cinematic Shot" 
-                fill 
+              <Image
+                src="/images/event1.jpeg"
+                alt="Mhengagee Media Cinematic Shot"
+                fill
                 className="object-cover transition-transform duration-1000 hover:scale-105"
                 style={{ objectPosition: '50% 20%' }}
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -61,10 +61,10 @@ export default function AboutPage() {
 
             {/* Overlapping Foreground Image */}
             <div className="absolute bottom-0 left-0 h-[55%] w-[60%] overflow-hidden rounded-[2rem] border-8 border-background bg-white/5 shadow-2xl">
-              <Image 
-                src="/images/mhenga2.jpeg" 
-                alt="Mhengagee Media Behind the Scenes" 
-                fill 
+              <Image
+                src="/images/mhenga2.jpeg"
+                alt="Mhengagee Media Behind the Scenes"
+                fill
                 className="object-cover transition-transform duration-1000 hover:scale-105"
                 style={{ objectPosition: '50% 20%' }}
                 sizes="(max-width: 1024px) 50vw, 25vw"
