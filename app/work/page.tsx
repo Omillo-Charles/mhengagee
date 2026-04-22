@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const categories = ["All", "Cinematography", "Photography", "Branding", "Events"];
 
@@ -75,10 +75,17 @@ const projects = [
 
 export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
     : projects.filter(p => p.category === activeCategory);
+
+  if (!mounted) return null;
 
   return (
     <main className="relative min-h-screen bg-background pt-12 pb-24 selection:bg-primary selection:text-white">
@@ -125,7 +132,6 @@ export default function WorkPage() {
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              layout
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}

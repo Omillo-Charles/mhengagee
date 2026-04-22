@@ -16,13 +16,19 @@ const images = [
 
 export default function ImageCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 4000); // Slides every 4 seconds
     return () => clearInterval(timer);
   }, []);
+
+  if (!mounted) return (
+    <div className="relative h-[50vh] w-full overflow-hidden bg-background sm:h-[70vh] lg:h-[80vh]" />
+  );
 
   return (
     <div className="relative h-[50vh] w-full overflow-hidden bg-background sm:h-[70vh] lg:h-[80vh]">
