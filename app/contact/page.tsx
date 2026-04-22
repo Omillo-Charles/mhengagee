@@ -68,15 +68,12 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center lg:text-left"
+          className="mb-10 text-center lg:text-left"
         >
-          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
+          <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
             <span className="h-2 w-2 rounded-full bg-primary" />
             <span className="text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase">Get in Touch</span>
           </div>
-          <h1 className="text-5xl font-black tracking-tighter text-white sm:text-7xl">
-            Let's create something <span className="text-gradient">legendary.</span>
-          </h1>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
