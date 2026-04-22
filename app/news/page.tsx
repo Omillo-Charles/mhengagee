@@ -5,35 +5,35 @@ import { motion } from "framer-motion";
 const newsItems = [
   {
     id: 1,
-    title: "Campus Spotlight: 2026 Cultural Festival Highlights",
-    date: "April 20, 2026",
+    title: "President Award Club Hike: Cinematic Journey",
+    date: "2 months ago",
     category: "Events",
-    videoId: "dQw4w9WgXcQ", // Placeholder - replace with real ID
-    description: "Capturing the vibrant energy and diverse talent at this year's Cooperative University Cultural Festival."
+    videoId: "_IOFgqhtkUc",
+    description: "Capturing the breathtaking journey of the Cooperative University of Kenya President Award Club during their recent hike."
   },
   {
     id: 2,
-    title: "Institutional Update: Latest News Around Campus",
-    date: "April 15, 2026",
-    category: "News",
-    videoId: "dQw4w9WgXcQ", // Placeholder - replace with real ID
-    description: "Staying connected with the recent developments and updates within our institution."
+    title: "CUK Student Council: Freshers Night Updates",
+    date: "5 months ago",
+    category: "Campus News",
+    videoId: "Dy9I4MA7bzc",
+    description: "Crucial updates from the Students Council regarding the Ngong' Racecourse Freshers Night 2025/2026."
   },
   {
     id: 3,
-    title: "Behind the Scenes: Our Creative Production Process",
-    date: "April 10, 2026",
-    category: "Production",
-    videoId: "dQw4w9WgXcQ", // Placeholder - replace with real ID
-    description: "A look into how Mhengagee Media crafts cinematic masterpieces from concept to final cut."
+    title: "President Award Debate Championship",
+    date: "4 months ago",
+    category: "Competition",
+    videoId: "O_S_B-dFWEI",
+    description: "Relive the intense and intellectual moments from the Cooperative University President Award Debate Championship."
   },
   {
     id: 4,
-    title: "Community Impact: Mhengagee Media x CUK Partnership",
-    date: "April 05, 2026",
-    category: "Community",
-    videoId: "dQw4w9WgXcQ", // Placeholder - replace with real ID
-    description: "Exploring our ongoing collaboration with the Cooperative University community."
+    title: "Graduation Ceremony: Gordon Oduor at Ngong'",
+    date: "4 months ago",
+    category: "Special Events",
+    videoId: "EyDA_rWJZEM",
+    description: "A cinematic coverage of the graduation ceremony of Gordon Oduor, celebrating academic achievement."
   }
 ];
 
