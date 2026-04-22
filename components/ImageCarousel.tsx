@@ -7,6 +7,10 @@ import { motion, AnimatePresence } from "framer-motion";
 const images = [
   "/images/carousel/40+ Short Hairstyles for Black Women - April 2026.jpeg",
   "/images/carousel/Full Moon Party Paradise - Koh Phangan's Full Moon Magic.jpeg",
+  "/images/carousel/IMG_0175 (2).jpg.jpeg",
+  "/images/carousel/IMG_0183 (3).jpg.jpeg",
+  "/images/carousel/IMG_0184 (2).jpg.jpeg",
+  "/images/carousel/MYXJ_20251020122332997_save.jpg.jpeg",
   "/images/carousel/_.jpeg",
 ];
 
