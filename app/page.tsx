@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ServicesCarousel from "@/components/ServicesCarousel";
 import ImageCarousel from "@/components/ImageCarousel";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -89,14 +90,18 @@ export default function Page() {
               transition={{ delay: 0.8, duration: 0.8 }}
               className="mt-12 flex flex-col gap-5 sm:flex-row"
             >
-              <button className="group relative w-full sm:w-auto overflow-hidden rounded-2xl bg-white px-10 py-5 text-sm font-bold text-black transition-all hover:scale-105 active:scale-95">
-                <span className="relative z-10">EXPLORE OUR WORK</span>
-                <div className="absolute inset-0 -translate-x-full bg-primary/10 transition-transform group-hover:translate-x-0" />
-              </button>
+              <Link href="/work" className="w-full sm:w-auto">
+                <button className="group relative w-full overflow-hidden rounded-2xl bg-white px-10 py-5 text-sm font-bold text-black transition-all hover:scale-105 active:scale-95">
+                  <span className="relative z-10">EXPLORE OUR WORK</span>
+                  <div className="absolute inset-0 -translate-x-full bg-primary/10 transition-transform group-hover:translate-x-0" />
+                </button>
+              </Link>
 
-              <button className="glass-morphism w-full sm:w-auto rounded-2xl px-10 py-5 text-sm font-bold text-white transition-all hover:bg-white/10 hover:border-white/30 active:scale-95">
-                GET IN TOUCH
-              </button>
+              <Link href="/contact" className="w-full sm:w-auto">
+                <button className="glass-morphism w-full rounded-2xl px-10 py-5 text-sm font-bold text-white transition-all hover:bg-white/10 hover:border-white/30 active:scale-95">
+                  GET IN TOUCH
+                </button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -124,23 +129,25 @@ export default function Page() {
               <span className="h-2 w-2 rounded-full bg-primary" />
               <span className="text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase">About Us</span>
             </div>
-            
+
             <h2 className="mb-8 text-4xl font-black tracking-tighter text-white sm:text-5xl md:text-6xl">
               Elevating Brands Through <span className="text-gradient">Visual Excellence.</span>
             </h2>
-            
+
             <p className="mb-6 text-lg leading-relaxed text-white/60">
               Mhengagee Media is a creative powerhouse based in Nairobi. We specialize in cinematic storytelling, blending art and technology to create visual identities that demand attention.
             </p>
-            
+
             <p className="mb-10 text-lg leading-relaxed text-white/60">
               Whether it's a commercial campaign or a brand overhaul, our approach is simple: we deliver outstanding quality without compromise.
             </p>
-            
-            <button className="group relative overflow-hidden rounded-2xl bg-white px-8 py-4 text-xs font-bold tracking-[0.15em] uppercase text-black transition-all hover:scale-105 active:scale-95">
-              <span className="relative z-10">Read Our Story</span>
-              <div className="absolute inset-0 -translate-x-full bg-primary/10 transition-transform group-hover:translate-x-0" />
-            </button>
+
+            <Link href="/about">
+              <button className="group relative overflow-hidden rounded-2xl bg-white px-8 py-4 text-xs font-bold tracking-[0.15em] uppercase text-black transition-all hover:scale-105 active:scale-95">
+                <span className="relative z-10">Read Our Story</span>
+                <div className="absolute inset-0 -translate-x-full bg-primary/10 transition-transform group-hover:translate-x-0" />
+              </button>
+            </Link>
           </motion.div>
         </div>
       </section>

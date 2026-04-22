@@ -10,6 +10,7 @@ import MobileMenu from "./MobileMenu";
 
 const navLinks = [
   { name: "Home", href: "/" },
+  { name: "Work", href: "/work" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "News", href: "/news" },
@@ -76,9 +77,11 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <button className="relative overflow-hidden rounded-2xl bg-white px-8 py-3 text-[10px] font-black tracking-[0.15em] uppercase text-black transition-all hover:scale-105 active:scale-95">
-            <span className="relative z-10">Get Started</span>
-          </button>
+          <Link href="/contact">
+            <button className="relative overflow-hidden rounded-2xl bg-white px-8 py-3 text-[10px] font-black tracking-[0.15em] uppercase text-black transition-all hover:scale-105 active:scale-95">
+              <span className="relative z-10">Get Started</span>
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
