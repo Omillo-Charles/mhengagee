@@ -105,14 +105,17 @@ export default function Footer() {
           <p className="text-xs font-medium text-white/40">
             &copy; {currentYear} Mhengagee Media. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="text-xs font-medium text-white/40 transition-colors hover:text-white">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-xs font-medium text-white/40 transition-colors hover:text-white">
-              Terms of Service
-            </Link>
-          </div>
+          <p className="text-xs font-medium text-white/40">
+            Built and maintained by{" "}
+            <a 
+              href="https://omytech.co.ke" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white hover:text-primary transition-colors"
+            >
+              OMYT3CH
+            </a>
+          </p>
         </div>
       </div>
     </footer>
