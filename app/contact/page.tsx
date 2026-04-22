@@ -1,3 +1,9 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import ImageCarousel from "@/components/ImageCarousel";
+
 const InstagramIcon = () => (
   <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -19,124 +25,200 @@ const YoutubeIcon = () => (
 );
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const { name, email, subject, message } = formData;
+    
+    // Basic validation
+    if (!name || !email || !message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    const whatsappNumber = "254712830837";
+    const text = `Hello Mhengagee Media! 👋\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject || "General Inquiry"}\n\n*Message:* ${message}`;
+    
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+    
+    window.open(whatsappUrl, "_blank");
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }));
+  };
+
   return (
-    <main className="relative min-h-screen bg-background pt-16 pb-24">
+    <main className="relative min-h-screen bg-background pt-12 pb-24">
       <div className="container mx-auto px-6">
         
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
+        {/* Header Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-16 text-center lg:text-left"
+        >
+          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
+            <span className="h-2 w-2 rounded-full bg-primary" />
+            <span className="text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase">Get in Touch</span>
+          </div>
+          <h1 className="text-5xl font-black tracking-tighter text-white sm:text-7xl">
+            Let's create something <span className="text-gradient">legendary.</span>
+          </h1>
+        </motion.div>
+
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           
-          {/* Left Column - Form & Socials */}
-          <div className="flex flex-col gap-12">
-            
-            {/* Simple Form */}
-            <form className="flex flex-col gap-6">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-xs font-bold tracking-widest text-white/70 uppercase">Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  placeholder="Your Name"
-                  className="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder-white/30 outline-none transition-all focus:border-white/30"
-                />
+          {/* Left Column - Form (7 cols) */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-7 flex flex-col gap-12"
+          >
+            <form 
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-8 rounded-[2.5rem] border border-white/10 bg-white/5 p-8 sm:p-12 backdrop-blur-md shadow-2xl"
+            >
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                <div className="flex flex-col gap-3">
+                  <label htmlFor="name" className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase ml-2">Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-white placeholder-white/20 outline-none transition-all focus:border-primary/50 focus:bg-white/10"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <label htmlFor="email" className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase ml-2">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your@email.com"
+                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-white placeholder-white/20 outline-none transition-all focus:border-primary/50 focus:bg-white/10"
+                  />
+                </div>
               </div>
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-xs font-bold tracking-widest text-white/70 uppercase">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  placeholder="your@email.com"
-                  className="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder-white/30 outline-none transition-all focus:border-white/30"
-                />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label htmlFor="subject" className="text-xs font-bold tracking-widest text-white/70 uppercase">Subject</label>
+              <div className="flex flex-col gap-3">
+                <label htmlFor="subject" className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase ml-2">Subject</label>
                 <input 
                   type="text" 
                   id="subject" 
-                  placeholder="What is this regarding?"
-                  className="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder-white/30 outline-none transition-all focus:border-white/30"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  placeholder="How can we help?"
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-white placeholder-white/20 outline-none transition-all focus:border-primary/50 focus:bg-white/10"
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-xs font-bold tracking-widest text-white/70 uppercase">Message</label>
+              <div className="flex flex-col gap-3">
+                <label htmlFor="message" className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase ml-2">Message</label>
                 <textarea 
                   id="message" 
-                  rows={4}
-                  placeholder="How can we help you?"
-                  className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder-white/30 outline-none transition-all focus:border-white/30"
+                  rows={5}
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your project..."
+                  className="w-full resize-none rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-white placeholder-white/20 outline-none transition-all focus:border-primary/50 focus:bg-white/10"
                 ></textarea>
               </div>
 
               <button 
-                type="button" 
-                className="mt-2 rounded-xl bg-white px-8 py-4 text-sm font-bold tracking-widest text-black transition-all hover:scale-[1.02] active:scale-95 uppercase"
+                type="submit" 
+                className="group relative mt-4 overflow-hidden rounded-2xl bg-white px-10 py-5 text-sm font-black tracking-widest text-black transition-all hover:scale-[1.02] active:scale-95 uppercase shadow-xl hover:shadow-white/10"
               >
-                Submit
+                <span className="relative z-10 transition-colors group-hover:text-white">Send Message</span>
+                <div className="absolute inset-0 -translate-x-full bg-gradient-to-tr from-accent-cyan to-secondary transition-transform duration-500 group-hover:translate-x-0" />
               </button>
             </form>
 
             {/* Direct Contact & Social Icons */}
-            <div className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
-              
+            <div className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between px-4">
               <div className="flex flex-col gap-4">
-                <h4 className="text-xs font-bold tracking-[0.2em] text-white/80 uppercase">Direct Line</h4>
+                <h4 className="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase">Direct Line</h4>
                 <a 
                   href="tel:0712830837" 
-                  className="inline-flex h-12 w-fit items-center justify-center rounded-full bg-white px-8 text-sm font-bold tracking-widest text-black shadow-lg transition-transform hover:scale-105 hover:shadow-white/20"
+                  className="inline-flex h-14 w-fit items-center justify-center rounded-full bg-white px-10 text-sm font-black tracking-widest text-black shadow-lg transition-transform hover:scale-105 hover:shadow-white/20"
                 >
                   +254 712 830 837
                 </a>
               </div>
 
               <div className="flex flex-col gap-4">
-                <h4 className="text-xs font-bold tracking-[0.2em] text-white/80 uppercase">Connect</h4>
+                <h4 className="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase">Connect</h4>
                 <div className="flex items-center gap-4">
-                  <a 
-                    href="#" 
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 hover:shadow-white/20" 
-                    aria-label="Instagram"
-                  >
-                    <InstagramIcon />
-                  </a>
-                  <a 
-                    href="#" 
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 hover:shadow-white/20" 
-                    aria-label="Twitter"
-                  >
-                    <TwitterIcon />
-                  </a>
-                  <a 
-                    href="#" 
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 hover:shadow-white/20" 
-                    aria-label="YouTube"
-                  >
-                    <YoutubeIcon />
-                  </a>
+                  {[
+                    { icon: <InstagramIcon />, label: "Instagram" },
+                    { icon: <TwitterIcon />, label: "Twitter" },
+                    { icon: <YoutubeIcon />, label: "YouTube" }
+                  ].map((social, i) => (
+                    <a 
+                      key={i}
+                      href="#" 
+                      className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 hover:shadow-white/20" 
+                      aria-label={social.label}
+                    >
+                      {social.icon}
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
+          </motion.div>
 
-          </div>
-
-          {/* Right Column - Map */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-bold tracking-[0.2em] text-white/80 uppercase">Our Location</h4>
-            <div className="relative w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5" style={{ height: "600px" }}>
-              <iframe 
-                src="https://www.google.com/maps?q=Cooperative+University+of+Kenya&output=embed" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy"
-                title="Map to Cooperative University of Kenya"
-                className="absolute inset-0 grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
-              ></iframe>
+          {/* Right Column - Visual & Map (5 cols) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="lg:col-span-5 flex flex-col gap-8"
+          >
+            {/* Intelligent Carousel Integration */}
+            <div className="relative overflow-hidden rounded-[2.5rem] bg-white/5 shadow-2xl" style={{ height: "400px" }}>
+              <div className="h-full w-full">
+                <ImageCarousel />
+              </div>
             </div>
-          </div>
+
+            {/* Location Map */}
+            <div className="flex flex-col gap-4">
+              <h4 className="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase ml-4">Our Location</h4>
+              <div className="relative w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-2xl" style={{ height: "350px" }}>
+                <iframe 
+                  src="https://www.google.com/maps?q=Cooperative+University+of+Kenya&output=embed" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy"
+                  title="Map to Cooperative University of Kenya"
+                  className="absolute inset-0 grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
+                ></iframe>
+              </div>
+            </div>
+          </motion.div>
 
         </div>
       </div>

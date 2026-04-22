@@ -11,13 +11,13 @@ const InstagramIcon = () => (
 
 const TwitterIcon = () => (
   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 );
 
 const YoutubeIcon = () => (
   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M21.582 6.186a2.71 2.71 0 0 0-1.905-1.916C17.994 3.8 12 3.8 12 3.8s-5.994 0-7.677.47a2.71 2.71 0 0 0-1.905 1.916C1.948 7.878 1.948 12 1.948 12s0 4.122.47 5.814a2.71 2.71 0 0 0 1.905 1.916C5.994 20.2 12 20.2 12 20.2s5.994 0 7.677-.47a2.71 2.71 0 0 0 1.905-1.916c.47-1.692.47-5.814.47-5.814s0-4.122-.47-5.814zm-11.8 9.071V8.743L15.342 12l-5.56 3.257z"/>
+    <path d="M21.582 6.186a2.71 2.71 0 0 0-1.905-1.916C17.994 3.8 12 3.8 12 3.8s-5.994 0-7.677.47a2.71 2.71 0 0 0-1.905 1.916C1.948 7.878 1.948 12 1.948 12s0 4.122.47 5.814a2.71 2.71 0 0 0 1.905 1.916C5.994 20.2 12 20.2 12 20.2s5.994 0 7.677-.47a2.71 2.71 0 0 0 1.905-1.916c.47-1.692.47-5.814.47-5.814s0-4.122-.47-5.814zm-11.8 9.071V8.743L15.342 12l-5.56 3.257z" />
   </svg>
 );
 
@@ -28,13 +28,13 @@ export default function Footer() {
     <footer className="relative border-t border-white/10 bg-background pt-16 pb-8">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-4 lg:gap-8">
-          
+
           {/* Brand & Description */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 group w-fit">
               <div className="relative h-12 w-12 overflow-hidden rounded-xl border border-white/10 transition-all group-hover:border-white/20 group-hover:scale-105">
                 <Image
-                  src="/images/mhenga1"
+                  src="/images/mhenga1.jpeg"
                   alt="MHENGAGEE Logo"
                   fill
                   className="object-cover"
@@ -55,7 +55,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-4">
               {["Work", "About", "Services", "News", "Contact"].map((item) => (
                 <li key={item}>
-                  <Link 
+                  <Link
                     href={`/${item.toLowerCase()}`}
                     className="text-sm font-medium text-white/50 transition-colors hover:text-white"
                   >
@@ -74,23 +74,23 @@ export default function Footer() {
                 hello@mhengagee.com
               </a>
               <div className="flex items-center gap-4">
-                <a 
-                  href="#" 
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 hover:shadow-white/20" 
+                <a
+                  href="#"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 hover:shadow-white/20"
                   aria-label="Instagram"
                 >
                   <InstagramIcon />
                 </a>
-                <a 
-                  href="#" 
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 hover:shadow-white/20" 
+                <a
+                  href="#"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 hover:shadow-white/20"
                   aria-label="Twitter"
                 >
                   <TwitterIcon />
                 </a>
-                <a 
-                  href="#" 
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 hover:shadow-white/20" 
+                <a
+                  href="#"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 hover:shadow-white/20"
                   aria-label="YouTube"
                 >
                   <YoutubeIcon />

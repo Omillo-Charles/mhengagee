@@ -41,7 +41,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative h-12 w-12 overflow-hidden rounded-xl border border-white/10 transition-all group-hover:border-white/20 group-hover:scale-105">
             <Image
-              src="/images/mhenga1"
+              src="/images/mhenga1.jpeg"
               alt="MHENGAGEE Logo"
               fill
               className="object-cover"
@@ -61,15 +61,13 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`group relative text-[10px] font-bold tracking-[0.2em] uppercase transition-all ${
-                  isActive ? "text-white" : "text-white/40 hover:text-white"
-                }`}
+                className={`group relative text-[10px] font-bold tracking-[0.2em] uppercase transition-all ${isActive ? "text-white" : "text-white/40 hover:text-white"
+                  }`}
               >
                 {link.name}
-                <span 
-                  className={`absolute -bottom-1 left-0 h-[1px] bg-primary transition-all ${
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
-                  }`} 
+                <span
+                  className={`absolute -bottom-1 left-0 h-[1px] bg-primary transition-all ${isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
                 />
               </Link>
             );
@@ -86,9 +84,8 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`relative z-[110] flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-white transition-all active:scale-90 md:hidden ${
-            isOpen ? "bg-white/10" : ""
-          }`}
+          className={`relative z-[110] flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-white transition-all active:scale-90 md:hidden ${isOpen ? "bg-white/10" : ""
+            }`}
           aria-label="Toggle Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -96,10 +93,10 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Component */}
-      <MobileMenu 
-        isOpen={isOpen} 
-        setIsOpen={setIsOpen} 
-        navLinks={navLinks} 
+      <MobileMenu
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        navLinks={navLinks}
       />
     </nav>
   );
