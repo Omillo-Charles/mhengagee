@@ -44,9 +44,9 @@ export default function NewsPage() {
         
         {/* Header Section */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16 text-center lg:text-left"
         >
           <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
@@ -63,9 +63,9 @@ export default function NewsPage() {
 
         {/* Featured Video Section */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="mb-24 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-2xl"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 lg:items-center">
@@ -95,10 +95,10 @@ export default function NewsPage() {
           {newsItems.slice(1).map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: false, amount: 0.1 }}
+              transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="group flex flex-col"
             >
               <div className="relative mb-6 aspect-video overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
@@ -127,9 +127,10 @@ export default function NewsPage() {
 
         {/* Call to Action */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="mt-32 rounded-[2.5rem] bg-white/5 border border-white/10 p-12 text-center"
         >
           <h2 className="text-3xl font-black tracking-tighter text-white mb-6">Want to see more?</h2>

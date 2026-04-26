@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import ImageCarousel from "@/components/ImageCarousel";
+import Image from "next/image";
 
 const InstagramIcon = () => (
   <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -65,9 +65,9 @@ export default function ContactPage() {
         
         {/* Header Section */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="mb-10 text-center lg:text-left"
         >
           <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
@@ -80,9 +80,9 @@ export default function ContactPage() {
           
           {/* Left Column - Form (7 cols) */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-7 flex flex-col gap-12"
           >
             <form 
@@ -187,15 +187,23 @@ export default function ContactPage() {
 
           {/* Right Column - Visual & Map (5 cols) */}
           <motion.div 
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 flex flex-col gap-8"
           >
-            {/* Intelligent Carousel Integration */}
-            <div className="relative overflow-hidden rounded-[2.5rem] bg-white/5 shadow-2xl" style={{ height: "400px" }}>
-              <div className="h-full w-full">
-                <ImageCarousel />
+            {/* Visual Image */}
+            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-2xl group" style={{ height: "400px" }}>
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/images/event1.jpeg"
+                  alt="Mhengagee Media Production"
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                  style={{ objectPosition: '50% 20%' }}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent mix-blend-overlay" />
               </div>
             </div>
 

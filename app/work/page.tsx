@@ -93,9 +93,9 @@ export default function WorkPage() {
         
         {/* Header Section */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16 text-center lg:text-left"
         >
           <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
@@ -132,9 +132,9 @@ export default function WorkPage() {
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className={`group relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/40 ${project.span}`}
             >
               {/* Blurred Background Fill */}
@@ -163,9 +163,10 @@ export default function WorkPage() {
 
         {/* CTA Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="mt-32 rounded-[2.5rem] bg-white/5 border border-white/10 p-12 text-center"
         >
           <h2 className="text-3xl font-black tracking-tighter text-white mb-6">Have a project in mind?</h2>

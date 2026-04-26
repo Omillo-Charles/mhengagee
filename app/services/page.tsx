@@ -35,9 +35,15 @@ export default function ServicesPage() {
         {/* Rate Card Section */}
         <section className="relative">
           {/* Photography */}
-          <div className="mb-12">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-12"
+          >
             <h2 className="text-4xl font-black uppercase tracking-tight text-white/90">Photography <span className="text-primary">Packages</span></h2>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
             {pricingData.photography.map((pkg, idx) => (
               <PricingCard key={idx} {...pkg} index={idx} />
@@ -45,9 +51,15 @@ export default function ServicesPage() {
           </div>
 
           {/* Videography */}
-          <div className="mb-12">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-12"
+          >
             <h2 className="text-4xl font-black uppercase tracking-tight text-white/90">Videography <span className="text-secondary">Packages</span></h2>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
             {pricingData.videography.map((pkg, idx) => (
               <PricingCard key={idx} {...pkg} index={idx} highlightColor="secondary" />
@@ -55,9 +67,15 @@ export default function ServicesPage() {
           </div>
 
           {/* Combos */}
-          <div className="mb-12">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-12"
+          >
             <h2 className="text-4xl font-black uppercase tracking-tight text-white/90">Combo <span className="text-accent-yellow">Packages</span></h2>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
             {pricingData.combos.map((pkg, idx) => (
               <PricingCard key={idx} {...pkg} index={idx} isLarge highlightColor="accent-yellow" />
@@ -65,17 +83,23 @@ export default function ServicesPage() {
           </div>
 
           {/* Add-ons */}
-          <div className="mb-12">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-12"
+          >
             <h2 className="text-4xl font-black uppercase tracking-tight text-white/90">Custom <span className="text-accent-cyan">Add-ons</span></h2>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {pricingData.addons.map((addon, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="glass-morphism-dark p-6 rounded-3xl flex justify-between items-center group hover:bg-white/5 transition-colors border border-white/5"
               >
                 <span className="font-bold text-white/90 uppercase tracking-wide group-hover:text-accent-cyan transition-colors">{addon.title}</span>
@@ -87,9 +111,10 @@ export default function ServicesPage() {
 
         {/* Footer Contact CTA */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mt-32 p-12 rounded-[3.5rem] bg-brand-gradient relative overflow-hidden flex flex-col items-center text-center shadow-2xl"
         >
           <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]" />
@@ -117,10 +142,10 @@ function PricingCard({ title, price, features, index, highlightColor = "primary"
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.6 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ delay: index * 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className="glass-morphism-dark p-8 md:p-10 rounded-[2.5rem] border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all duration-500"
     >
       {/* Accent Background Glow */}
