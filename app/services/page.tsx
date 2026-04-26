@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+import Image from "next/image";
+
 const pricingData = {
   photography: [
     { title: "Basic Package", price: "10,000", features: ["4 Hours Coverage", "100+ Edited Photos"] },
@@ -26,87 +28,161 @@ const pricingData = {
 
 export default function ServicesPage() {
   return (
-    <main className="relative min-h-screen bg-background pt-8 pb-24 selection:bg-primary selection:text-white overflow-x-hidden">
+    <main className="relative min-h-screen bg-background pt-12 pb-24 selection:bg-primary selection:text-white overflow-x-hidden">
       {/* Background Glows */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 blur-[120px] -z-10 animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 blur-[120px] -z-10 animate-float" style={{ animationDelay: '2s' }} />
 
       <div className="container mx-auto px-6">
-        {/* Rate Card Section */}
-        <section className="relative">
-          {/* Photography */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-12"
-          >
-            <h2 className="text-4xl font-black uppercase tracking-tight text-white/90">Photography <span className="text-primary">Packages</span></h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
-            {pricingData.photography.map((pkg, idx) => (
-              <PricingCard key={idx} {...pkg} index={idx} />
-            ))}
+        
+        {/* Hero Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-24 text-center lg:text-left"
+        >
+          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
+            <span className="h-2 w-2 rounded-full bg-primary" />
+            <span className="text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase">Our Expertise</span>
           </div>
+          <h1 className="text-5xl font-black tracking-tighter text-white sm:text-7xl">
+            Cinematic <span className="text-gradient">Services.</span>
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-white/50">
+            From high-end corporate campaigns to unforgettable events, we deliver visual excellence through cutting-edge photography and videography.
+          </p>
+        </motion.div>
 
-          {/* Videography */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-12"
-          >
-            <h2 className="text-4xl font-black uppercase tracking-tight text-white/90">Videography <span className="text-secondary">Packages</span></h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
-            {pricingData.videography.map((pkg, idx) => (
-              <PricingCard key={idx} {...pkg} index={idx} highlightColor="secondary" />
-            ))}
-          </div>
-
-          {/* Combos */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-12"
-          >
-            <h2 className="text-4xl font-black uppercase tracking-tight text-white/90">Combo <span className="text-accent-yellow">Packages</span></h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-            {pricingData.combos.map((pkg, idx) => (
-              <PricingCard key={idx} {...pkg} index={idx} isLarge highlightColor="accent-yellow" />
-            ))}
-          </div>
-
-          {/* Add-ons */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-12"
-          >
-            <h2 className="text-4xl font-black uppercase tracking-tight text-white/90">Custom <span className="text-accent-cyan">Add-ons</span></h2>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {pricingData.addons.map((addon, idx) => (
+        {/* Services Sections */}
+        <section className="relative flex flex-col gap-32">
+          
+          {/* Photography Section */}
+          <div className="relative">
+            {/* Visual Intro */}
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center mb-16">
               <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="glass-morphism-dark p-6 rounded-3xl flex justify-between items-center group hover:bg-white/5 transition-colors border border-white/5"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                className="order-2 lg:order-1"
               >
-                <span className="font-bold text-white/90 uppercase tracking-wide group-hover:text-accent-cyan transition-colors">{addon.title}</span>
-                <span className="text-accent-cyan font-black text-lg">Ksh {addon.price}</span>
+                <h2 className="text-4xl font-black uppercase tracking-tight text-white/90 mb-6">Photography <span className="text-primary">Excellence</span></h2>
+                <p className="text-lg leading-relaxed text-white/60 mb-6">
+                  Our photography goes beyond simply taking pictures. We craft compelling visual narratives that capture the emotion, energy, and essence of every moment.
+                </p>
+                <p className="text-lg leading-relaxed text-white/60">
+                  Whether it's a dynamic event, a sleek corporate profile, or a high-fashion editorial, our team uses state-of-the-art equipment and masterful lighting techniques to ensure every shot is a masterpiece.
+                </p>
               </motion.div>
-            ))}
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="relative h-[300px] sm:h-[400px] w-full rounded-[2.5rem] overflow-hidden border border-white/10 order-1 lg:order-2"
+              >
+                <Image src="/images/mhenga2.jpeg" alt="Professional Photography" fill className="object-cover" style={{ objectPosition: '50% 20%' }} />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              </motion.div>
+            </div>
+            
+            {/* Packages */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {pricingData.photography.map((pkg, idx) => (
+                <PricingCard key={idx} {...pkg} index={idx} />
+              ))}
+            </div>
           </div>
+
+          {/* Videography Section */}
+          <div className="relative">
+            {/* Visual Intro */}
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center mb-16">
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="relative h-[300px] sm:h-[400px] w-full rounded-[2.5rem] overflow-hidden border border-white/10"
+              >
+                <Image src="/images/event1.jpeg" alt="Cinematic Videography" fill className="object-cover" style={{ objectPosition: '50% 20%' }} />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <h2 className="text-4xl font-black uppercase tracking-tight text-white/90 mb-6">Cinematic <span className="text-secondary">Videography</span></h2>
+                <p className="text-lg leading-relaxed text-white/60 mb-6">
+                  We don't just record video; we produce cinema. Our videography team specializes in creating visually stunning, emotionally resonant films that leave a lasting impact.
+                </p>
+                <p className="text-lg leading-relaxed text-white/60">
+                  From dynamic highlight reels to full-scale documentary coverage, we utilize high-end cinema cameras, drones, and meticulous color grading to elevate your brand's story.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Packages */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {pricingData.videography.map((pkg, idx) => (
+                <PricingCard key={idx} {...pkg} index={idx} highlightColor="secondary" />
+              ))}
+            </div>
+          </div>
+
+          {/* Combos & Add-ons Block */}
+          <div className="relative p-6 sm:p-12 md:p-16 rounded-[3rem] bg-white/[0.02] border border-white/5 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent-yellow/5 to-transparent pointer-events-none" />
+            
+            {/* Combos */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-12 text-center"
+            >
+              <h2 className="text-4xl font-black uppercase tracking-tight text-white/90 mb-4">The Ultimate <span className="text-accent-yellow">Combos</span></h2>
+              <p className="text-white/50 max-w-2xl mx-auto">Get the best of both worlds with our comprehensive media packages.</p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24 relative z-10">
+              {pricingData.combos.map((pkg, idx) => (
+                <PricingCard key={idx} {...pkg} index={idx} isLarge highlightColor="accent-yellow" />
+              ))}
+            </div>
+
+            {/* Add-ons */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-12 text-center"
+            >
+              <h2 className="text-3xl font-black uppercase tracking-tight text-white/90 mb-4">Custom <span className="text-accent-cyan">Add-ons</span></h2>
+              <p className="text-white/50 max-w-xl mx-auto">Enhance your package with specialized services.</p>
+            </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
+              {pricingData.addons.map((addon, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  className="glass-morphism-dark p-6 rounded-3xl flex justify-between items-center group hover:bg-white/5 transition-colors border border-white/5"
+                >
+                  <span className="font-bold text-white/90 uppercase tracking-wide group-hover:text-accent-cyan transition-colors">{addon.title}</span>
+                  <span className="text-accent-cyan font-black text-lg">Ksh {addon.price}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          
         </section>
 
         {/* Footer Contact CTA */}
