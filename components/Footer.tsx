@@ -70,8 +70,11 @@ export default function Footer() {
           <div>
             <h4 className="mb-6 text-xs font-bold tracking-[0.2em] text-white/80 uppercase">Connect</h4>
             <div className="flex flex-col gap-6">
-              <a href="mailto:hello@mhengagee.com" className="text-sm font-medium text-white/50 transition-colors hover:text-white">
-                hello@mhengagee.com
+              <a href="mailto:info@mhengagee.co.ke" className="text-sm font-medium text-white/50 transition-colors hover:text-white">
+                info@mhengagee.co.ke
+              </a>
+              <a href="tel:+254740353025" className="text-sm font-medium text-white/50 transition-colors hover:text-white">
+                +254 740 353 025
               </a>
               <div className="flex items-center gap-4">
                 <a
@@ -107,10 +110,10 @@ export default function Footer() {
           </p>
           <p className="text-xs font-medium text-white/40">
             Built and maintained by{" "}
-            <a 
-              href="https://omytech.co.ke" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://omytech.co.ke"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white hover:text-primary transition-colors"
             >
               OMYT3CH
