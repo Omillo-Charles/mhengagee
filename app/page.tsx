@@ -116,7 +116,7 @@ export default function Page() {
             className="container mx-auto max-w-5xl"
           >
             <div 
-              className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-4 gap-8 md:gap-6 rounded-[2rem] border border-white/10 bg-black/40 p-6 backdrop-blur-md sm:p-8 [&::-webkit-scrollbar]:hidden" 
+              className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-4 gap-8 md:gap-6 [&::-webkit-scrollbar]:hidden" 
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {[
