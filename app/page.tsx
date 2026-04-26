@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import ServicesCarousel from "@/components/ServicesCarousel";
 import ImageCarousel from "@/components/ImageCarousel";
+import AnimatedNumber from "@/components/AnimatedNumber";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -103,6 +104,38 @@ export default function Page() {
                 </button>
               </Link>
             </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="absolute bottom-6 sm:bottom-10 left-0 w-full z-20 px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="container mx-auto max-w-5xl"
+          >
+            <div 
+              className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-4 gap-8 md:gap-6 rounded-[2rem] border border-white/10 bg-black/40 p-6 backdrop-blur-md sm:p-8 [&::-webkit-scrollbar]:hidden" 
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {[
+                { num: 100, suffix: "+", label: "Projects", color: "from-primary to-accent-cyan" },
+                { num: 50, suffix: "+", label: "Clients", color: "from-secondary to-accent-yellow" },
+                { num: 5, suffix: "+", label: "Years", color: "from-accent-yellow to-accent-orange" },
+                { num: 15, suffix: "+", label: "Awards", color: "from-accent-cyan to-primary" },
+              ].map((stat) => (
+                <div key={stat.label} className="min-w-[140px] shrink-0 snap-center md:min-w-0 flex flex-col items-center text-center">
+                  <div className={`text-4xl font-black bg-gradient-to-br ${stat.color} bg-clip-text text-transparent mb-2 flex items-center`}>
+                    <AnimatedNumber value={stat.num} />
+                    <span>{stat.suffix}</span>
+                  </div>
+                  <span className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
