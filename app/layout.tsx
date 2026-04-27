@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_KE",
-    url: "https://mhengagee.com",
+    url: "https://mhengagee.co.ke",
     siteName: "Mhengagee Media",
     title: "Mhengagee Media | Visual Excellence & Cinematic Storytelling",
     description: "A Nairobi-based creative powerhouse dedicated to crafting visual identities that demand attention through cinematic storytelling and uncompromising quality.",
@@ -45,6 +45,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  other: {
+    "google-site-verification": "Y_IcnXhgU84qpj-tlOa9lpDT_8jrFanWD1p8yLUw27M"
   },
 };
 
