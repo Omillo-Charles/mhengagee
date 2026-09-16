@@ -1,187 +1,103 @@
-"use client";
-
-import { motion } from "framer-motion";
-import ServicesCarousel from "@/components/ServicesCarousel";
-import ImageCarousel from "@/components/ImageCarousel";
-import AnimatedNumber from "@/components/AnimatedNumber";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight, Camera, Clapperboard, Mic2, Video } from "lucide-react";
+import Feed from "@/components/foryou/Feed";
+import Trending from "@/components/foryou/Trending";
+import { services } from "@/components/services/content";
 
 export default function Page() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background selection:bg-primary selection:text-white">
-      {/* Hero Video Section */}
-      <section className="relative h-screen w-full">
-        {/* Background Video */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover"
-          >
-            <source src="/videos/0122e4dedba262507d1ec9987289e94d_720w.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          {/* Multi-layered Overlay */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-background" />
-        </div>
+    <main className="relative min-h-screen overflow-hidden bg-[#f5f4f0] selection:bg-primary selection:text-white">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[radial-gradient(circle_at_12%_0%,rgba(0,204,255,0.12),transparent_32%),radial-gradient(circle_at_88%_12%,rgba(214,41,118,0.08),transparent_28%)]" />
+      <section className="relative mx-auto max-w-[1440px] px-4 pb-14 pt-2 sm:px-8 sm:pb-20 sm:pt-4 lg:px-12 lg:pt-6">
+        <section className="border-t border-black/10 pt-4 lg:pt-8" aria-labelledby="services-heading">
+          <div className="grid overflow-hidden rounded-[2px] bg-navy text-white lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="relative min-h-[300px] bg-black/20 sm:min-h-[420px] lg:min-h-[560px]">
+              <Image
+                src="/images/mhenga2.jpeg"
+                alt="MhengaGee Media creator holding a camera"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+              <p className="absolute bottom-6 left-6 font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-cyan sm:bottom-8 sm:left-8">Made with intention</p>
+            </div>
 
-        {/* Floating Decorative Elements */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-primary/20 blur-[120px]"
-          />
-          <motion.div
-            animate={{
-              y: [0, 20, 0],
-              opacity: [0.2, 0.4, 0.2],
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute top-1/2 -right-24 h-80 w-80 rounded-full bg-secondary/10 blur-[100px]"
-          />
-        </div>
+            <div className="flex flex-col justify-center p-5 sm:p-10 lg:p-14">
+              <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-cyan">What we do</p>
+              <h2 id="services-heading" className="mt-3 max-w-xl font-display text-3xl font-bold leading-[0.95] tracking-[-0.04em] sm:text-6xl">Stories built to be seen and remembered.</h2>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-white/65 sm:mt-6">MhengaGee Media helps people, brands, and organizations turn ideas into clear, compelling visual stories.</p>
 
-        {/* Content */}
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col items-center"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-6 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[10px] font-bold tracking-[0.2em] text-white/60 uppercase backdrop-blur-md"
-            >
-              Mhengagee media
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-5xl text-5xl font-black tracking-tighter text-white sm:text-7xl md:text-9xl"
-            >
-              CRAFTING <br />
-              <span className="text-gradient">VISUAL</span> MASTERPIECES
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-white/70 md:text-xl"
-            >
-              Where vision meets reality. Mhengagee Media elevates digital identities through cinematic excellence and visionary creative direction.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-12 flex flex-col gap-5 sm:flex-row"
-            >
-              <Link href="/work" className="w-full sm:w-auto">
-                <button className="group relative w-full overflow-hidden rounded-2xl bg-white px-10 py-5 text-sm font-bold text-black transition-all hover:scale-105 active:scale-95">
-                  <span className="relative z-10">EXPLORE OUR WORK</span>
-                  <div className="absolute inset-0 -translate-x-full bg-primary/10 transition-transform group-hover:translate-x-0" />
-                </button>
-              </Link>
-
-              <Link href="/contact" className="w-full sm:w-auto">
-                <button className="glass-morphism w-full rounded-2xl px-10 py-5 text-sm font-bold text-white transition-all hover:bg-white/10 hover:border-white/30 active:scale-95">
-                  GET IN TOUCH
-                </button>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Stats Grid */}
-        <div className="absolute bottom-6 sm:bottom-10 left-0 w-full z-20 px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="container mx-auto max-w-5xl"
-          >
-            <div 
-              className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-4 gap-8 md:gap-6 [&::-webkit-scrollbar]:hidden" 
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-              {[
-                { num: 100, suffix: "+", label: "Projects", color: "from-primary to-accent-cyan" },
-                { num: 50, suffix: "+", label: "Clients", color: "from-secondary to-accent-yellow" },
-                { num: 5, suffix: "+", label: "Years", color: "from-accent-yellow to-accent-orange" },
-                { num: 15, suffix: "+", label: "Awards", color: "from-accent-cyan to-primary" },
-              ].map((stat) => (
-                <div key={stat.label} className="min-w-[140px] shrink-0 snap-center md:min-w-0 flex flex-col items-center text-center">
-                  <div className={`text-4xl font-black bg-gradient-to-br ${stat.color} bg-clip-text text-transparent mb-2 flex items-center`}>
-                    <AnimatedNumber value={stat.num} />
-                    <span>{stat.suffix}</span>
+              <div className="mt-8 grid gap-x-8 sm:grid-cols-2">
+                {[
+                  { icon: Camera, title: "Photography", text: "Portraits, events, products, and campaigns." },
+                  { icon: Video, title: "Videography", text: "Films and content that move with purpose." },
+                  { icon: Clapperboard, title: "Cinematography", text: "Visual direction with a distinctive point of view." },
+                  { icon: Mic2, title: "Podcast production", text: "From recording and editing to final delivery." },
+                ].map(({ icon: Icon, title, text }) => (
+                  <div key={title} className="border-t border-white/15 py-5">
+                    <Icon size={20} className="text-accent-yellow" />
+                    <h3 className="mt-3 font-display text-xl font-semibold">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-white/55">{text}</p>
                   </div>
-                  <span className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase">
-                    {stat.label}
-                  </span>
+                ))}
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link href="/contact" className="group flex w-fit items-center gap-2 border border-white/30 px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] transition-colors hover:border-accent-cyan hover:bg-accent-cyan hover:text-navy">
+                  Start a project
+                  <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+                <a href="https://wa.me/254740353025" target="_blank" rel="noreferrer" className="flex w-fit items-center gap-2 border border-[#25D366] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white">
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-16 border-t border-black/10 pt-10 lg:mt-20 lg:pt-14" aria-labelledby="service-cards-heading">
+          <div className="mb-8 flex flex-col items-start gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">Explore our services</p>
+              <h2 id="service-cards-heading" className="mt-2 max-w-2xl font-display text-3xl font-bold leading-[1.02] tracking-[-0.03em] text-navy sm:text-4xl">Find the right way to tell your story.</h2>
+            </div>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/portfolio" className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:text-primary">
+                View what we&apos;ve done already
+                <ArrowUpRight size={14} />
+              </Link>
+              <Link href="/contact" className="hidden items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:text-primary sm:inline-flex">
+                Start a project
+                <ArrowUpRight size={14} />
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <article key={service.slug} className="overflow-hidden rounded-[2px] border border-black/10 bg-white transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+                <div className="relative aspect-[4/3] overflow-hidden bg-navy">
+                  <Image src={service.image} alt={service.title} fill className="object-cover object-top transition duration-700 hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+                <div className="p-5">
+                  <p className="font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-primary">{service.kicker}</p>
+                  <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-navy">{service.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-black/60">{service.description}</p>
+                  <Link href={`/services/${service.slug}`} className="group mt-5 inline-flex items-center gap-2 border border-navy px-4 py-2.5 font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-navy transition-colors hover:bg-navy hover:text-white">
+                    Learn more
+                    <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
-      {/* ───── SERVICES MARQUEE ───── */}
-      <div className="relative z-20 -mt-[1px]">
-        <ServicesCarousel />
-      </div>
-
-      {/* ───── IMAGE CAROUSEL ───── */}
-      <ImageCarousel />
-
-      {/* ───── ABOUT SECTION ───── */}
-      <section className="relative z-10 bg-background pb-24 sm:pb-32 pt-12 sm:pt-16">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto max-w-4xl text-center"
-          >
-            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
-              <span className="h-2 w-2 rounded-full bg-primary" />
-              <span className="text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase">About Us</span>
-            </div>
-
-            <h2 className="mb-8 text-4xl font-black tracking-tighter text-white sm:text-5xl md:text-6xl">
-              Elevating Brands Through <span className="text-gradient">Visual Excellence.</span>
-            </h2>
-
-            <p className="mb-6 text-lg leading-relaxed text-white/60">
-              Mhengagee Media is a creative powerhouse based in Nairobi. We specialize in cinematic storytelling, blending art and technology to create visual identities that demand attention.
-            </p>
-
-            <p className="mb-10 text-lg leading-relaxed text-white/60">
-              Whether it's a commercial campaign or a brand overhaul, our approach is simple: we deliver outstanding quality without compromise.
-            </p>
-
-            <Link href="/about">
-              <button className="group relative overflow-hidden rounded-2xl bg-white px-8 py-4 text-xs font-bold tracking-[0.15em] uppercase text-black transition-all hover:scale-105 active:scale-95">
-                <span className="relative z-10">Read Our Story</span>
-                <div className="absolute inset-0 -translate-x-full bg-primary/10 transition-transform group-hover:translate-x-0" />
-              </button>
-            </Link>
-          </motion.div>
+        <div className="mt-14 grid gap-12 sm:mt-20 lg:mt-28 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-12">
+          <Feed />
+          <Trending />
         </div>
       </section>
     </main>

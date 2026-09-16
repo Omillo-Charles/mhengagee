@@ -1,137 +1,30 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-R.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-RI.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-B.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-BI.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-M.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-MI.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-L.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-LI.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/ubuntufont/ubuntu-font-family-0.83/Ubuntu-Th.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme {
-  /* Colors deduced from brand images */
-  --color-primary: #2D5BFF;
-  --color-secondary: #D62976;
-  --color-accent-orange: #FA7E1E;
-  --color-accent-yellow: #FCAF45;
-  --color-accent-cyan: #00CCFF;
-  --color-navy: #1E293B;
-  --color-background: #0F172A;
-  --color-foreground: #F8FAFC;
-  
-  --font-sans: "Ubuntu", "Inter", "Arial", "Helvetica", sans-serif;
-  
-  /* Custom Animations */
-  --animate-spin-slow: spin 8s linear infinite;
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-marquee: marquee 30s linear infinite;
-}
+  --color-primary: var(--brand-primary);
+  --color-secondary: var(--brand-secondary);
+  --color-accent-orange: var(--brand-accent-orange);
+  --color-accent-yellow: var(--brand-accent-yellow);
+  --color-accent-cyan: var(--brand-accent-cyan);
+  --color-navy: var(--brand-navy);
+  --color-background: var(--brand-background-dark);
+  --color-foreground: var(--brand-foreground-dark);
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
+  --font-sans: var(--font-mulish), sans-serif;
+  --font-display: var(--font-glacial-indifference), sans-serif;
+  --font-accent: var(--font-outfit), sans-serif;
 
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 25s linear infinite;
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #0F172A;
-  
-  /* Brand Gradient deduced from logo circular spectrum */
-  --brand-gradient: conic-gradient(
-    from 180deg at 50% 50%,
-    #2D5BFF 0deg,
-    #00CCFF 72deg,
-    #FCAF45 144deg,
-    #FA7E1E 216deg,
-    #D62976 288deg,
-    #2D5BFF 360deg
-  );
+  --background: var(--brand-background-light);
+  --foreground: var(--brand-foreground-light);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0F172A;
-    --foreground: #F8FAFC;
-  }
-}
-
-/* Shrink all rem-based font sizes on mobile only */
-@media (max-width: 767px) {
-  html {
-    font-size: 11px;
+    --background: var(--brand-background-dark);
+    --foreground: var(--brand-foreground-dark);
   }
 }
 
@@ -143,35 +36,93 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom utility for the brand gradient background */
-.bg-brand-gradient {
-  background: var(--brand-gradient);
+.field-label {
+  display: block;
+  color: rgb(255 255 255 / 0.55);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.text-gradient {
-  background: var(--brand-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.field-input {
+  margin-top: 0.5rem;
+  width: 100%;
+  border-bottom: 1px solid rgb(255 255 255 / 0.2);
+  background: transparent;
+  padding: 0.75rem 0;
+  color: white;
+  font-family: var(--font-mulish), sans-serif;
+  font-size: 0.875rem;
+  outline: none;
 }
 
-.glass-morphism {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.field-input::placeholder {
+  color: rgb(255 255 255 / 0.3);
 }
 
-.glass-morphism-dark {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+.field-input:focus {
+  border-color: var(--brand-accent-cyan);
 }
 
-/* Blur main content when menu is open */
-body.menu-open main {
-  filter: blur(40px);
-  pointer-events: none;
-  transition: filter 0.4s ease;
+.quote-step {
+  margin-bottom: 1.25rem;
+  color: var(--brand-primary);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.quote-step span {
+  margin-left: 0.75rem;
+  color: var(--brand-navy);
+}
+
+.quote-field-label {
+  display: block;
+  color: rgb(15 23 42 / 0.72);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.quote-field-input {
+  margin-top: 0.5rem;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgb(15 23 42 / 0.2);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.75rem 0;
+  color: var(--brand-navy);
+  font-family: var(--font-mulish), sans-serif;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 180ms ease;
+}
+
+.quote-field-input::placeholder {
+  color: rgb(15 23 42 / 0.48);
+}
+
+.quote-field-input:focus {
+  border-color: var(--brand-primary);
+}
+
+select.quote-field-input {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--brand-navy) 50%), linear-gradient(135deg, var(--brand-navy) 50%, transparent 50%);
+  background-position: calc(100% - 16px) 50%, calc(100% - 11px) 50%;
+  background-repeat: no-repeat;
+  background-size: 5px 5px, 5px 5px;
+  padding-right: 2.5rem;
+}
+
+input[type="date"].quote-field-input {
+  color-scheme: light;
 }

@@ -1,232 +1,95 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { FormEvent, useState } from "react";
+import { ArrowUpRight, Camera, Mail, MapPin, MessageCircle, Send, Video } from "lucide-react";
 
-const InstagramIcon = () => (
-  <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-  </svg>
-);
-
-const TwitterIcon = () => (
-  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-  </svg>
-);
-
-const YoutubeIcon = () => (
-  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M21.582 6.186a2.71 2.71 0 0 0-1.905-1.916C17.994 3.8 12 3.8 12 3.8s-5.994 0-7.677.47a2.71 2.71 0 0 0-1.905 1.916C1.948 7.878 1.948 12 1.948 12s0 4.122.47 5.814a2.71 2.71 0 0 0 1.905 1.916C5.994 20.2 12 20.2 12 20.2s5.994 0 7.677-.47a2.71 2.71 0 0 0 1.905-1.916c.47-1.692.47-5.814.47-5.814s0-4.122-.47-5.814zm-11.8 9.071V8.743L15.342 12l-5.56 3.257z"/>
-  </svg>
-);
+const services = ["Photography", "Videography", "Event coverage", "Commercial production", "Something else"];
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  });
+	const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const { name, email, subject, message } = formData;
-    
-    // Basic validation
-    if (!name || !email || !message) {
-      alert("Please fill in all required fields.");
-      return;
-    }
+	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		setSubmitted(true);
+	};
 
-    const whatsappNumber = "254712830837";
-    const text = `Hello Mhengagee Media! 👋\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject || "General Inquiry"}\n\n*Message:* ${message}`;
-    
-    const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-    
-    window.open(whatsappUrl, "_blank");
-  };
+	return (
+		<main className="min-h-screen bg-[#f5f4f0] text-navy selection:bg-primary selection:text-white">
+			<section className="mx-auto max-w-[1440px] px-5 pb-10 pt-8 sm:px-8 sm:pb-14 sm:pt-12 lg:px-12 lg:pb-20 lg:pt-16">
+				<div className="grid overflow-hidden rounded-[2px] bg-navy text-white lg:grid-cols-[0.9fr_1.1fr]">
+					<div className="relative min-h-[420px] overflow-hidden sm:min-h-[560px] lg:min-h-[620px]">
+						<Image src="/images/branding1.jpeg" alt="Glennaspin Opemi, founder of Mhengagee Media" fill priority className="object-cover object-[72%_center]" sizes="(max-width: 1024px) 100vw, 45vw" />
+						<div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent" />
+						<div className="absolute bottom-0 left-0 right-0 p-6 sm:p-9">
+							<p className="flex items-center gap-3 font-accent text-[10px] font-semibold uppercase tracking-[0.24em] text-accent-cyan"><span className="h-px w-8 bg-accent-cyan" />Mhengagee Media</p>
+							<p className="mt-4 font-display text-3xl font-bold uppercase leading-[0.95] sm:text-4xl">Stories made with purpose.</p>
+						</div>
+					</div>
+					<div className="flex flex-col justify-center p-6 sm:p-10 lg:p-14">
+						<p className="font-accent text-[10px] font-semibold uppercase tracking-[0.24em] text-accent-cyan">About the founder</p>
+						<h1 className="mt-4 font-display text-4xl font-bold uppercase leading-[0.92] tracking-[-0.04em] sm:text-6xl">Glennaspin<br />Opemi</h1>
+						<p className="mt-3 font-accent text-xs font-semibold uppercase tracking-[0.2em] text-white/55">Known professionally as Mhenga</p>
+						<div className="mt-8 space-y-5 font-sans text-base leading-7 text-white/70">
+							<p>Glennaspin Opemi, widely known as Mhenga, began his media career at the Cooperative University of Kenya, where his curiosity for storytelling grew into a life in visual media.</p>
+							<p>He is the founder and producer at Mhengagee Media, a media personality at CUK, and a host, videographer, and photographer at DSM Studios in Nairobi, Kenya.</p>
+							<p>Through his work, Glennaspin brings people, ideas, and real moments into focus, creating photography and video that feels immediate, thoughtful, and distinctly human.</p>
+						</div>
+						<div className="mt-9 flex flex-wrap gap-2 border-t border-white/15 pt-5">
+							{["Founder", "Producer", "Host", "Videographer", "Photographer"].map((role) => <span key={role} className="rounded-full border border-white/20 px-3 py-2 font-accent text-[9px] font-semibold uppercase tracking-[0.14em] text-white/70">{role}</span>)}
+						</div>
+					</div>
+				</div>
+			</section>
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.id]: e.target.value
-    }));
-  };
+			<section className="mx-auto max-w-[1440px] px-5 pb-16 pt-8 sm:px-8 sm:pt-12 lg:px-12 lg:pt-16">
+				<div className="grid overflow-hidden rounded-[2px] bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)] lg:grid-cols-[0.9fr_1.1fr]">
+					<div className="relative min-h-[380px] overflow-hidden bg-navy sm:min-h-[520px] lg:min-h-[720px]">
+						<Image src="/images/mhenga2.jpeg" alt="Mhengagee Media portrait" fill priority className="object-cover object-[72%_center] transition duration-700 hover:scale-105" sizes="(max-width: 1024px) 100vw, 45vw" />
+						<div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/10" />
+						<div className="absolute bottom-0 left-0 right-0 p-6 text-white sm:p-9">
+							<p className="flex items-center gap-3 font-accent text-[10px] font-semibold uppercase tracking-[0.24em] text-accent-cyan"><span className="h-px w-8 bg-accent-cyan" />Mhengagee Media</p>
+							<p className="mt-4 max-w-sm font-display text-3xl font-bold uppercase leading-[0.95] sm:text-4xl">Let&apos;s create something that moves people.</p>
+						</div>
+					</div>
 
-  return (
-    <main className="relative min-h-screen bg-background pt-12 pb-24">
-      <div className="container mx-auto px-6">
-        
-        {/* Header Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10 text-center lg:text-left"
-        >
-          <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
-            <span className="h-2 w-2 rounded-full bg-primary" />
-            <span className="text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase">Get in Touch</span>
-          </div>
-        </motion.div>
+					<div className="bg-navy p-5 text-white sm:p-9 lg:p-12">
+						<div className="flex items-center justify-between border-b border-white/15 pb-6">
+							<div><p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-cyan">Get in touch</p><h1 className="mt-2 font-display text-4xl font-bold leading-none sm:text-5xl">Contact us</h1></div>
+							<Send size={26} className="text-accent-cyan" strokeWidth={1.5} />
+						</div>
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-          
-          {/* Left Column - Form (7 cols) */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-7 flex flex-col gap-12"
-          >
-            <form 
-              onSubmit={handleSubmit}
-              className="flex flex-col gap-8 rounded-[2.5rem] border border-white/10 bg-white/5 p-8 sm:p-12 backdrop-blur-md shadow-2xl"
-            >
-              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-                <div className="flex flex-col gap-3">
-                  <label htmlFor="name" className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase ml-2">Name</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your Name"
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-white placeholder-white/20 outline-none transition-all focus:border-primary/50 focus:bg-white/10"
-                  />
-                </div>
+						{submitted ? (
+							<div className="flex min-h-[400px] flex-col items-start justify-center">
+								<span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-cyan text-navy"><Send size={20} /></span>
+								<h2 className="mt-6 font-display text-3xl font-bold">Message received.</h2>
+								<p className="mt-3 max-w-md font-sans text-sm leading-6 text-white/65">Thanks for reaching out. This form is ready to connect to the admin inbox when the backend is wired up.</p>
+								<button type="button" onClick={() => setSubmitted(false)} className="mt-7 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-accent-cyan hover:text-white">Send another inquiry</button>
+							</div>
+						) : (
+							<form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+								<div className="grid gap-6 sm:grid-cols-2">
+									<label className="block"><span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">Your name</span><input required name="name" type="text" className="mt-2 w-full border-b border-white/20 bg-transparent px-0 py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-accent-cyan" placeholder="Jane Doe" /></label>
+									<label className="block"><span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">Email address</span><input required name="email" type="email" className="mt-2 w-full border-b border-white/20 bg-transparent px-0 py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-accent-cyan" placeholder="jane@example.com" /></label>
+								</div>
+								<label className="block"><span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">What do you need?</span><select name="service" defaultValue="" className="mt-2 w-full border-b border-white/20 bg-navy px-0 py-3 font-sans text-sm text-white outline-none transition-colors focus:border-accent-cyan"><option value="" disabled>Select a service</option>{services.map((service) => <option key={service} value={service}>{service}</option>)}</select></label>
+								<label className="block"><span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">Tell us about the project</span><textarea required name="message" rows={5} className="mt-2 w-full resize-none border-b border-white/20 bg-transparent px-0 py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-accent-cyan" placeholder="A few details about your idea, timeline, or budget..." /></label>
+								<button type="submit" className="group flex items-center gap-3 rounded-full bg-accent-cyan px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-white">Send inquiry <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></button>
+							</form>
+						)}
+					</div>
+				</div>
 
-                <div className="flex flex-col gap-3">
-                  <label htmlFor="email" className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase ml-2">Email</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your@email.com"
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-white placeholder-white/20 outline-none transition-all focus:border-primary/50 focus:bg-white/10"
-                  />
-                </div>
-              </div>
+				<div className="mt-8 grid gap-4 border-t border-black/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+					<a href="mailto:hello@mhengagee.co.ke" className="group flex items-center gap-3 rounded-[2px] bg-white p-5 transition-shadow hover:shadow-[0_10px_30px_rgba(15,23,42,0.08)]"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-accent-cyan"><Mail size={17} /></span><span><span className="block font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/40">Email us</span><span className="mt-1 block font-sans text-sm text-navy group-hover:text-primary">hello@mhengagee.co.ke</span></span></a>
+					<a href="https://wa.me/254740353025" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-[2px] bg-white p-5 transition-shadow hover:shadow-[0_10px_30px_rgba(15,23,42,0.08)]"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white"><MessageCircle size={17} /></span><span><span className="block font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/40">Message us</span><span className="mt-1 block font-sans text-sm text-navy group-hover:text-[#16883D]">WhatsApp</span></span></a>
+					<a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-[2px] bg-white p-5 transition-shadow hover:shadow-[0_10px_30px_rgba(15,23,42,0.08)]"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-white"><Camera size={17} /></span><span><span className="block font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/40">Follow along</span><span className="mt-1 block font-sans text-sm text-navy group-hover:text-secondary">Instagram</span></span></a>
+					<a href="https://www.youtube.com" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-[2px] bg-white p-5 transition-shadow hover:shadow-[0_10px_30px_rgba(15,23,42,0.08)]"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FF0000] text-white"><Video size={17} /></span><span><span className="block font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/40">Watch our work</span><span className="mt-1 block font-sans text-sm text-navy group-hover:text-[#CC0000]">YouTube</span></span></a>
+				</div>
 
-              <div className="flex flex-col gap-3">
-                <label htmlFor="subject" className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase ml-2">Subject</label>
-                <input 
-                  type="text" 
-                  id="subject" 
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="How can we help?"
-                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-white placeholder-white/20 outline-none transition-all focus:border-primary/50 focus:bg-white/10"
-                />
-              </div>
-
-              <div className="flex flex-col gap-3">
-                <label htmlFor="message" className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase ml-2">Message</label>
-                <textarea 
-                  id="message" 
-                  rows={5}
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your project..."
-                  className="w-full resize-none rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-white placeholder-white/20 outline-none transition-all focus:border-primary/50 focus:bg-white/10"
-                ></textarea>
-              </div>
-
-              <button 
-                type="submit" 
-                className="group relative mt-4 overflow-hidden rounded-2xl bg-white px-10 py-5 text-sm font-black tracking-widest text-black transition-all hover:scale-[1.02] active:scale-95 uppercase shadow-xl hover:shadow-white/10"
-              >
-                <span className="relative z-10 transition-colors group-hover:text-white">Send Message</span>
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-tr from-accent-cyan to-secondary transition-transform duration-500 group-hover:translate-x-0" />
-              </button>
-            </form>
-
-            {/* Direct Contact & Social Icons */}
-            <div className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between px-4">
-              <div className="flex flex-col gap-4">
-                <h4 className="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase">Direct Line</h4>
-                <a 
-                  href="tel:0712830837" 
-                  className="inline-flex h-14 w-fit items-center justify-center rounded-full bg-white px-10 text-sm font-black tracking-widest text-black shadow-lg transition-transform hover:scale-105 hover:shadow-white/20"
-                >
-                  +254 712 830 837
-                </a>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <h4 className="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase">Connect</h4>
-                <div className="flex items-center gap-4">
-                  {[
-                    { icon: <InstagramIcon />, label: "Instagram" },
-                    { icon: <TwitterIcon />, label: "Twitter" },
-                    { icon: <YoutubeIcon />, label: "YouTube" }
-                  ].map((social, i) => (
-                    <a 
-                      key={i}
-                      href="#" 
-                      className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 hover:shadow-white/20" 
-                      aria-label={social.label}
-                    >
-                      {social.icon}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column - Visual & Map (5 cols) */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 flex flex-col gap-8"
-          >
-            {/* Visual Image */}
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-2xl group" style={{ height: "400px" }}>
-              <div className="absolute inset-0 z-0">
-                <Image
-                  src="/images/event1.jpeg"
-                  alt="Mhengagee Media Production"
-                  fill
-                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                  style={{ objectPosition: '50% 20%' }}
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent mix-blend-overlay" />
-              </div>
-            </div>
-
-            {/* Location Map */}
-            <div className="flex flex-col gap-4">
-              <h4 className="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase ml-4">Our Location</h4>
-              <div className="relative w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-2xl" style={{ height: "350px" }}>
-                <iframe 
-                  src="https://www.google.com/maps?q=Cooperative+University+of+Kenya&output=embed" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen 
-                  loading="lazy"
-                  title="Map to Cooperative University of Kenya"
-                  className="absolute inset-0 grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
-                ></iframe>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
-      </div>
-    </main>
-  );
+				<div className="mt-8 flex flex-col gap-4 border-t border-black/10 pt-6 sm:flex-row sm:items-center sm:justify-between"><span className="flex items-center gap-2 font-accent text-[10px] uppercase tracking-[0.16em] text-black/45"><MapPin size={14} className="text-primary" />Nairobi, Kenya · Available worldwide</span><Link href="/" className="flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:text-navy">Back to Mhengagee <ArrowUpRight size={15} /></Link></div>
+			</section>
+		</main>
+	);
 }

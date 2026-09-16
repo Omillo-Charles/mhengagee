@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Preloader from "@/components/Preloader";
+import { colorVariables } from "@/config/colors";
+import { glacialIndifference, mulish, outfit } from "@/config/fonts";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -57,9 +58,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${glacialIndifference.variable} ${mulish.variable} ${outfit.variable}`}
+      style={colorVariables}
+    >
       <body className="antialiased flex min-h-screen flex-col">
-        <Preloader />
         <Navbar />
         <div className="flex-1">
           {children}
