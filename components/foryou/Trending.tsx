@@ -34,7 +34,7 @@ export default function Trending() {
                 <button type="button" className="mt-5 flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white">Subscribe <ArrowUpRight size={15} /></button>
             </div>
             <Partners />
-			<SupportMedia />
+            <SupportMedia />
         </aside>
     );
 }

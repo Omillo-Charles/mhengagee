@@ -35,31 +35,31 @@ export default function QuotePage() {
 						{submitted ? (
 							<div className="flex min-h-[620px] flex-col justify-center"><span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-cyan text-navy"><Check size={21} /></span><h2 className="mt-6 font-display text-4xl font-bold text-navy">Brief received.</h2><p className="mt-4 max-w-md text-sm leading-7 text-black/65">Thanks for sharing the details. This quote form is ready to connect to the email and estimation workflow when the backend is wired up.</p><button type="button" onClick={() => setSubmitted(false)} className="mt-8 w-fit font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:text-navy">Submit another brief</button></div>
 						) : (
-								<form onSubmit={handleSubmit} className="space-y-8">
+							<form onSubmit={handleSubmit} className="space-y-8">
 								<div className="border-b border-black/10 pb-6"><p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">Request a quote</p><h2 className="mt-2 font-display text-3xl font-bold text-navy sm:text-4xl">Project brief</h2><p className="mt-3 max-w-xl text-sm leading-6 text-black/55">No detail is too early. Share what you know and we&apos;ll ask about the rest.</p></div>
 								<div><p className="quote-step">01 <span>Your details</span></p>
-								<div className="grid gap-6 sm:grid-cols-2">
-									<label className="block"><span className="quote-field-label">Your name</span><input required name="name" type="text" placeholder="Jane Doe" className="quote-field-input" /></label>
-									<label className="block"><span className="quote-field-label">Company or organization</span><input name="company" type="text" placeholder="Your company" className="quote-field-input" /></label>
-								</div>
-								<div className="grid gap-6 sm:grid-cols-2">
-									<label className="block"><span className="quote-field-label">Email address</span><input required name="email" type="email" placeholder="you@example.com" className="quote-field-input" /></label>
-									<label className="block"><span className="quote-field-label">Phone or WhatsApp</span><input name="phone" type="tel" placeholder="+254..." className="quote-field-input" /></label>
-								</div>
+									<div className="grid gap-6 sm:grid-cols-2">
+										<label className="block"><span className="quote-field-label">Your name</span><input required name="name" type="text" placeholder="Jane Doe" className="quote-field-input" /></label>
+										<label className="block"><span className="quote-field-label">Company or organization</span><input name="company" type="text" placeholder="Your company" className="quote-field-input" /></label>
+									</div>
+									<div className="grid gap-6 sm:grid-cols-2">
+										<label className="block"><span className="quote-field-label">Email address</span><input required name="email" type="email" placeholder="you@example.com" className="quote-field-input" /></label>
+										<label className="block"><span className="quote-field-label">Phone or WhatsApp</span><input name="phone" type="tel" placeholder="+254..." className="quote-field-input" /></label>
+									</div>
 								</div>
 								<div><p className="quote-step">02 <span>Project basics</span></p>
-								<div className="grid gap-6 sm:grid-cols-2">
-									<label className="block"><span className="quote-field-label">Service needed</span><select required name="service" defaultValue="" className="quote-field-input"><option value="" disabled>Select a service</option>{services.map((service) => <option key={service}>{service}</option>)}</select></label>
-									<label className="block"><span className="quote-field-label">Estimated budget</span><select name="budget" defaultValue="" className="quote-field-input"><option value="" disabled>Select a range</option>{budgets.map((budget) => <option key={budget}>{budget}</option>)}</select></label>
-								</div>
-								<div className="grid gap-6 sm:grid-cols-2">
-									<label className="block"><span className="quote-field-label">Preferred project date</span><input name="date" type="date" className="quote-field-input" /></label>
-									<label className="block"><span className="quote-field-label">Location</span><input name="location" type="text" placeholder="Nairobi / Remote" className="quote-field-input" /></label>
-								</div>
+									<div className="grid gap-6 sm:grid-cols-2">
+										<label className="block"><span className="quote-field-label">Service needed</span><select required name="service" defaultValue="" className="quote-field-input"><option value="" disabled>Select a service</option>{services.map((service) => <option key={service}>{service}</option>)}</select></label>
+										<label className="block"><span className="quote-field-label">Estimated budget</span><select name="budget" defaultValue="" className="quote-field-input"><option value="" disabled>Select a range</option>{budgets.map((budget) => <option key={budget}>{budget}</option>)}</select></label>
+									</div>
+									<div className="grid gap-6 sm:grid-cols-2">
+										<label className="block"><span className="quote-field-label">Preferred project date</span><input name="date" type="date" className="quote-field-input" /></label>
+										<label className="block"><span className="quote-field-label">Location</span><input name="location" type="text" placeholder="Nairobi / Remote" className="quote-field-input" /></label>
+									</div>
 								</div>
 								<div><p className="quote-step">03 <span>Tell us about the work</span></p>
-								<label className="block"><span className="quote-field-label">What should we create?</span><textarea required name="brief" rows={5} placeholder="Tell us about the project, audience, goals, deliverables, references, and anything else that will help us understand the work." className="quote-field-input resize-none" /></label>
-								<label className="mt-6 block"><span className="quote-field-label">How did you hear about us?</span><input name="referral" type="text" placeholder="Instagram, referral, search..." className="quote-field-input" /></label>
+									<label className="block"><span className="quote-field-label">What should we create?</span><textarea required name="brief" rows={5} placeholder="Tell us about the project, audience, goals, deliverables, references, and anything else that will help us understand the work." className="quote-field-input resize-none" /></label>
+									<label className="mt-6 block"><span className="quote-field-label">How did you hear about us?</span><input name="referral" type="text" placeholder="Instagram, referral, search..." className="quote-field-input" /></label>
 								</div>
 								<div className="flex flex-col gap-4 border-t border-black/10 pt-6 sm:flex-row sm:items-center sm:justify-between"><p className="max-w-sm text-xs leading-5 text-black/45">We&apos;ll review your brief and follow up with the right next steps.</p><button type="submit" className="group flex items-center justify-center gap-3 bg-primary px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-navy">Send project brief <Send size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></button></div>
 							</form>
