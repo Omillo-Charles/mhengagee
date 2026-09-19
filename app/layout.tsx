@@ -4,6 +4,7 @@ import { colorVariables } from "@/config/colors";
 import { glacialIndifference, mulish, outfit } from "@/config/fonts";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata: Metadata = {
   title: {
@@ -64,11 +65,13 @@ export default function RootLayout({
       style={colorVariables}
     >
       <body className="antialiased flex min-h-screen flex-col">
-        <Navbar />
-        <div className="flex-1">
-          {children}
-        </div>
-        <Footer />
+        <AuthProvider>
+          <Navbar />
+          <div className="flex-1">
+            {children}
+          </div>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

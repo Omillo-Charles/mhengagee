@@ -4,7 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Search, UserRound, X } from "lucide-react";
+import { ChevronDown, LogOut, UserRound } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
 
 const navigation = [
     { label: "For You", href: "/" },
@@ -15,8 +16,16 @@ const navigation = [
 ];
 
 export default function Navbar() {
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [isAccountOpen, setIsAccountOpen] = useState(false);
     const pathname = usePathname();
+    const { user, isLoading, signOut } = useAuth();
+
+    const accountLabel = user?.displayName || user?.firstName || user?.email.split("@")[0] || "Account";
+
+    const handleSignOut = async () => {
+        await signOut();
+        setIsAccountOpen(false);
+    };
 
     return (
         <header className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md">
@@ -58,68 +67,14 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                    <div className="hidden items-center md:flex">
-                        {isSearchOpen && (
-                            <input
-                                type="search"
-                                aria-label="Search Mhengagee Media"
-                                placeholder="Search"
-                                autoFocus
-                                className="w-36 border-b border-[var(--brand-navy)] bg-transparent px-1 py-2 font-accent text-xs text-[var(--brand-navy)] outline-none placeholder:text-black/40"
-                            />
-                        )}
-                        <button
-                            type="button"
-                            aria-label={isSearchOpen ? "Close search" : "Open search"}
-                            aria-expanded={isSearchOpen}
-                            onClick={() => setIsSearchOpen((open) => !open)}
-                            className="rounded-full p-2 text-[var(--brand-navy)] transition-colors hover:bg-black/5 hover:text-[var(--brand-primary)]"
-                        >
-                            {isSearchOpen ? <X size={18} strokeWidth={1.7} /> : <Search size={18} strokeWidth={1.7} />}
-                        </button>
-                    </div>
-
                     <div className="flex items-center gap-1 lg:hidden">
-                        <button
-                            type="button"
-                            aria-label={isSearchOpen ? "Close search" : "Open search"}
-                            aria-expanded={isSearchOpen}
-                            onClick={() => setIsSearchOpen((open) => !open)}
-                            className="rounded-full p-2 text-[var(--brand-navy)] transition-colors hover:bg-black/5 hover:text-[var(--brand-primary)]"
-                        >
-                            {isSearchOpen ? <X size={19} strokeWidth={1.7} /> : <Search size={19} strokeWidth={1.7} />}
-                        </button>
-                        <Link
-                            href="/sign-in"
-                            aria-label="Sign in"
-                            className="rounded-full p-2 text-[var(--brand-navy)] transition-colors hover:bg-black/5 hover:text-[var(--brand-primary)]"
-                        >
-                            <UserRound size={19} strokeWidth={1.7} />
-                        </Link>
+                        {user?.role === "ADMIN" ? <Link href="/admin" aria-label="Open admin panel" className="rounded-full p-2 text-[var(--brand-navy)] transition-colors hover:bg-black/5 hover:text-[var(--brand-primary)]"><UserRound size={19} strokeWidth={1.7} /></Link> : user ? <div className="relative"><button type="button" onClick={() => setIsAccountOpen((open) => !open)} aria-label="Open account menu" aria-expanded={isAccountOpen} className="rounded-full p-2 text-[var(--brand-navy)] transition-colors hover:bg-black/5 hover:text-[var(--brand-primary)]"><UserRound size={19} strokeWidth={1.7} /></button>{isAccountOpen ? <div className="absolute right-0 top-[calc(100%+0.5rem)] z-10 min-w-36 border border-black/10 bg-white p-2 shadow-lg"><button type="button" onClick={handleSignOut} className="flex w-full items-center gap-2 px-3 py-2 text-left font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-navy hover:bg-black/5"><LogOut size={14} />Log out</button></div> : null}</div> : <Link href="/sign-in" aria-label="Sign in" className="rounded-full p-2 text-[var(--brand-navy)] transition-colors hover:bg-black/5 hover:text-[var(--brand-primary)]"><UserRound size={19} strokeWidth={1.7} /></Link>}
                     </div>
 
-                    <Link
-                        href="/sign-in"
-                        className="hidden items-center gap-2 rounded-full bg-[var(--brand-navy)] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[var(--brand-primary)] sm:flex"
-                    >
-                        Sign in
-                        <span aria-hidden="true" className="text-base leading-none">↗</span>
-                    </Link>
 
+                    {isLoading || !user ? <Link href="/sign-in" className="hidden items-center gap-2 rounded-full bg-[var(--brand-navy)] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[var(--brand-primary)] sm:flex">Sign in <span aria-hidden="true" className="text-base leading-none">↗</span></Link> : user.role === "ADMIN" ? <Link href="/admin" className="hidden items-center gap-2 rounded-full bg-[var(--brand-navy)] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[var(--brand-primary)] sm:flex">Admin <span aria-hidden="true" className="text-base leading-none">↗</span></Link> : <div className="relative hidden sm:block"><button type="button" onClick={() => setIsAccountOpen((open) => !open)} aria-expanded={isAccountOpen} className="flex items-center gap-2 rounded-full bg-[var(--brand-navy)] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[var(--brand-primary)]">{accountLabel}<ChevronDown size={14} /></button>{isAccountOpen ? <div className="absolute right-0 top-[calc(100%+0.5rem)] z-10 min-w-44 border border-black/10 bg-white p-2 shadow-lg"><button type="button" onClick={handleSignOut} className="flex w-full items-center gap-2 px-3 py-2 text-left font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-navy hover:bg-black/5"><LogOut size={14} />Log out</button></div> : null}</div>}
                 </div>
             </nav>
-
-            {isSearchOpen && (
-                <div className="border-t border-black/10 px-5 py-3 lg:hidden sm:px-8">
-                    <input
-                        type="search"
-                        aria-label="Search Mhengagee Media"
-                        placeholder="Search Mhengagee Media"
-                        autoFocus
-                        className="w-full border-b border-[var(--brand-navy)] bg-transparent px-1 py-2 font-accent text-sm text-[var(--brand-navy)] outline-none placeholder:text-black/40"
-                    />
-                </div>
-            )}
 
             <div className="border-t border-black/10 lg:hidden">
                 <div className="mx-auto flex max-w-[1440px] gap-7 overflow-x-auto px-5 py-2 [scrollbar-width:none] sm:px-8 [&::-webkit-scrollbar]:hidden">

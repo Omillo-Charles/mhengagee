@@ -4,16 +4,41 @@ import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { ArrowLeft, ArrowUpRight, Check, Send } from "lucide-react";
+import { quoteApi } from "@/config/api";
 
 const services = ["Photography", "Videography", "Cinematography", "Podcast production", "Branding", "Event coverage", "Other"];
 const budgets = ["Under KES 50,000", "KES 50,000 - 100,000", "KES 100,000 - 250,000", "KES 250,000+", "I need guidance"];
 
 export default function QuotePage() {
 	const [submitted, setSubmitted] = useState(false);
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [errorMessage, setErrorMessage] = useState("");
 
-	function handleSubmit(event: FormEvent<HTMLFormElement>) {
+	async function handleSubmit(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
-		setSubmitted(true);
+		setIsSubmitting(true);
+		setErrorMessage("");
+		const formData = new FormData(event.currentTarget);
+
+		try {
+			await quoteApi.submit({
+				name: String(formData.get("name") || ""),
+				company: String(formData.get("company") || "") || undefined,
+				email: String(formData.get("email") || ""),
+				phone: String(formData.get("phone") || "") || undefined,
+				service: String(formData.get("service") || ""),
+				budget: String(formData.get("budget") || "") || undefined,
+				date: String(formData.get("date") || "") || undefined,
+				location: String(formData.get("location") || "") || undefined,
+				brief: String(formData.get("brief") || ""),
+				referral: String(formData.get("referral") || "") || undefined,
+			});
+			setSubmitted(true);
+		} catch (error) {
+			setErrorMessage(error instanceof Error ? error.message : "We could not send your project brief. Please try again.");
+		} finally {
+			setIsSubmitting(false);
+		}
 	}
 
 	return (
@@ -61,7 +86,7 @@ export default function QuotePage() {
 									<label className="block"><span className="quote-field-label">What should we create?</span><textarea required name="brief" rows={5} placeholder="Tell us about the project, audience, goals, deliverables, references, and anything else that will help us understand the work." className="quote-field-input resize-none" /></label>
 									<label className="mt-6 block"><span className="quote-field-label">How did you hear about us?</span><input name="referral" type="text" placeholder="Instagram, referral, search..." className="quote-field-input" /></label>
 								</div>
-								<div className="flex flex-col gap-4 border-t border-black/10 pt-6 sm:flex-row sm:items-center sm:justify-between"><p className="max-w-sm text-xs leading-5 text-black/45">We&apos;ll review your brief and follow up with the right next steps.</p><button type="submit" className="group flex items-center justify-center gap-3 bg-primary px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-navy">Send project brief <Send size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></button></div>
+								<div className="flex flex-col gap-4 border-t border-black/10 pt-6 sm:flex-row sm:items-center sm:justify-between"><div><p className="max-w-sm text-xs leading-5 text-black/45">We&apos;ll review your brief and follow up with the right next steps.</p>{errorMessage && <p className="mt-2 text-sm text-red-600" role="alert">{errorMessage}</p>}</div><button type="submit" disabled={isSubmitting} className="group flex items-center justify-center gap-3 bg-primary px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-navy disabled:cursor-wait disabled:opacity-60">{isSubmitting ? "Sending..." : "Send project brief"} <Send size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></button></div>
 							</form>
 						)}
 					</div>

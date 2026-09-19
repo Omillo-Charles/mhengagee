@@ -49,7 +49,7 @@ export default function Page() {
                   Start a project
                   <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
-                <a href="https://wa.me/254740353025" target="_blank" rel="noreferrer" className="flex w-fit items-center gap-2 border border-[#25D366] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white">
+                <a href="https://wa.me/254712830837" target="_blank" rel="noreferrer" className="flex w-fit items-center gap-2 border border-[#25D366] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white">
                   WhatsApp
                 </a>
               </div>

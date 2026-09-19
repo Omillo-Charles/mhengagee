@@ -4,15 +4,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { ArrowUpRight, Camera, Mail, MapPin, MessageCircle, Send, Video } from "lucide-react";
+import { contactApi } from "@/config/api";
 
 const services = ["Photography", "Videography", "Event coverage", "Commercial production", "Something else"];
 
 export default function ContactPage() {
 	const [submitted, setSubmitted] = useState(false);
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [errorMessage, setErrorMessage] = useState("");
 
-	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		setSubmitted(true);
+		setIsSubmitting(true);
+		setErrorMessage("");
+		const formData = new FormData(event.currentTarget);
+
+		try {
+			await contactApi.submit({
+				name: String(formData.get("name") || ""),
+				email: String(formData.get("email") || ""),
+				service: String(formData.get("service") || ""),
+				message: String(formData.get("message") || ""),
+			});
+			setSubmitted(true);
+		} catch (error) {
+			setErrorMessage(error instanceof Error ? error.message : "We could not send your inquiry. Please try again.");
+		} finally {
+			setIsSubmitting(false);
+		}
 	};
 
 	return (
@@ -68,14 +87,15 @@ export default function ContactPage() {
 								<button type="button" onClick={() => setSubmitted(false)} className="mt-7 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-accent-cyan hover:text-white">Send another inquiry</button>
 							</div>
 						) : (
-							<form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+										<form className="mt-8 space-y-6" onSubmit={handleSubmit}>
 								<div className="grid gap-6 sm:grid-cols-2">
 									<label className="block"><span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">Your name</span><input required name="name" type="text" className="mt-2 w-full border-b border-white/20 bg-transparent px-0 py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-accent-cyan" placeholder="Jane Doe" /></label>
 									<label className="block"><span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">Email address</span><input required name="email" type="email" className="mt-2 w-full border-b border-white/20 bg-transparent px-0 py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-accent-cyan" placeholder="jane@example.com" /></label>
 								</div>
 								<label className="block"><span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">What do you need?</span><select name="service" defaultValue="" className="mt-2 w-full border-b border-white/20 bg-navy px-0 py-3 font-sans text-sm text-white outline-none transition-colors focus:border-accent-cyan"><option value="" disabled>Select a service</option>{services.map((service) => <option key={service} value={service}>{service}</option>)}</select></label>
 								<label className="block"><span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">Tell us about the project</span><textarea required name="message" rows={5} className="mt-2 w-full resize-none border-b border-white/20 bg-transparent px-0 py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-accent-cyan" placeholder="A few details about your idea, timeline, or budget..." /></label>
-								<button type="submit" className="group flex items-center gap-3 rounded-full bg-accent-cyan px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-white">Send inquiry <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></button>
+												{errorMessage && <p className="text-sm text-red-300" role="alert">{errorMessage}</p>}
+												<button type="submit" disabled={isSubmitting} className="group flex items-center gap-3 rounded-full bg-accent-cyan px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-white disabled:cursor-wait disabled:opacity-60">{isSubmitting ? "Sending..." : "Send inquiry"} <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></button>
 							</form>
 						)}
 					</div>
@@ -83,9 +103,9 @@ export default function ContactPage() {
 
 				<div className="mt-8 grid gap-4 border-t border-black/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
 					<a href="mailto:hello@mhengagee.co.ke" className="group flex items-center gap-3 rounded-[2px] bg-white p-5 transition-shadow hover:shadow-[0_10px_30px_rgba(15,23,42,0.08)]"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-accent-cyan"><Mail size={17} /></span><span><span className="block font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/40">Email us</span><span className="mt-1 block font-sans text-sm text-navy group-hover:text-primary">hello@mhengagee.co.ke</span></span></a>
-					<a href="https://wa.me/254740353025" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-[2px] bg-white p-5 transition-shadow hover:shadow-[0_10px_30px_rgba(15,23,42,0.08)]"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white"><MessageCircle size={17} /></span><span><span className="block font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/40">Message us</span><span className="mt-1 block font-sans text-sm text-navy group-hover:text-[#16883D]">WhatsApp</span></span></a>
-					<a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-[2px] bg-white p-5 transition-shadow hover:shadow-[0_10px_30px_rgba(15,23,42,0.08)]"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-white"><Camera size={17} /></span><span><span className="block font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/40">Follow along</span><span className="mt-1 block font-sans text-sm text-navy group-hover:text-secondary">Instagram</span></span></a>
-					<a href="https://www.youtube.com" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-[2px] bg-white p-5 transition-shadow hover:shadow-[0_10px_30px_rgba(15,23,42,0.08)]"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FF0000] text-white"><Video size={17} /></span><span><span className="block font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/40">Watch our work</span><span className="mt-1 block font-sans text-sm text-navy group-hover:text-[#CC0000]">YouTube</span></span></a>
+					<a href="https://wa.me/254712830837" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-[2px] bg-white p-5 transition-shadow hover:shadow-[0_10px_30px_rgba(15,23,42,0.08)]"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white"><MessageCircle size={17} /></span><span><span className="block font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/40">Message us</span><span className="mt-1 block font-sans text-sm text-navy group-hover:text-[#16883D]">WhatsApp</span></span></a>
+					<a href="https://www.instagram.com/mhenga_gee" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-[2px] bg-white p-5 transition-shadow hover:shadow-[0_10px_30px_rgba(15,23,42,0.08)]"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-white"><Camera size={17} /></span><span><span className="block font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/40">Follow along</span><span className="mt-1 block font-sans text-sm text-navy group-hover:text-secondary">Instagram</span></span></a>
+					<a href="https://www.youtube.com/@DSMUpdates" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-[2px] bg-white p-5 transition-shadow hover:shadow-[0_10px_30px_rgba(15,23,42,0.08)]"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FF0000] text-white"><Video size={17} /></span><span><span className="block font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/40">Watch our work</span><span className="mt-1 block font-sans text-sm text-navy group-hover:text-[#CC0000]">YouTube</span></span></a>
 				</div>
 
 				<div className="mt-8 flex flex-col gap-4 border-t border-black/10 pt-6 sm:flex-row sm:items-center sm:justify-between"><span className="flex items-center gap-2 font-accent text-[10px] uppercase tracking-[0.16em] text-black/45"><MapPin size={14} className="text-primary" />Nairobi, Kenya · Available worldwide</span><Link href="/" className="flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:text-navy">Back to Mhengagee <ArrowUpRight size={15} /></Link></div>

@@ -1,8 +1,8 @@
-import type { Story } from "@/components/foryou/content";
+import type { NewsArticle } from "@/config/api";
 import NewsCard from "./NewsCard";
 
 type NewsGridProps = {
-	stories: Story[];
+	stories: NewsArticle[];
 };
 
 export default function NewsGrid({ stories }: NewsGridProps) {

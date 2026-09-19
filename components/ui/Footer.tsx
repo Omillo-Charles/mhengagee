@@ -28,8 +28,8 @@ export default function Footer() {
                         </Link>
                         <p className="mt-6 max-w-sm font-accent text-sm leading-7 text-white/55">Cinematic photography, film, and visual stories from Nairobi to everywhere your work needs to be seen.</p>
                         <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-white/65">
-                            <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-[var(--brand-accent-cyan)]">Instagram</a>
-                            <a href="https://www.youtube.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-[var(--brand-accent-cyan)]">YouTube</a>
+                            <a href="https://www.instagram.com/mhenga_gee" target="_blank" rel="noreferrer" className="transition-colors hover:text-[var(--brand-accent-cyan)]">Instagram</a>
+                            <a href="https://www.youtube.com/@DSMUpdates" target="_blank" rel="noreferrer" className="transition-colors hover:text-[var(--brand-accent-cyan)]">YouTube</a>
                             <a href="mailto:hello@mhengagee.co.ke" className="transition-colors hover:text-[var(--brand-accent-cyan)]">Email</a>
                         </div>
                     </div>

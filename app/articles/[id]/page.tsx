@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Clock3 } from "lucide-react";
 import ArticleShare from "@/components/articles/ArticleShare";
-import { stories } from "@/components/foryou/content";
+import { newsApi, type NewsArticle } from "@/config/api";
 
 const articleBodies: Record<string, string[]> = {
   "nairobi-after-dark": [
@@ -28,29 +28,28 @@ const articleBodies: Record<string, string[]> = {
   ],
 };
 
-export async function generateStaticParams() {
-  return stories.map((story) => ({ id: story.id }));
-}
-
 export default async function ArticlePage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const article = stories.find((story) => story.id === id);
+  let article: NewsArticle;
 
-  if (!article) {
+  try {
+    const response = await newsApi.getBySlug(id);
+    article = response.data;
+  } catch {
     notFound();
   }
 
-  const body = articleBodies[article.id] ?? [
+  const relatedStories = (await newsApi.list({ limit: 4 })).data.filter((story) => story.slug !== article.slug).slice(0, 3);
+
+  const body = article.content ? [article.content] : articleBodies[article.slug] ?? [
     "The story behind this feature is rooted in the people, places, and ideas shaping the creative economy today.",
     "By documenting the details that often go unnoticed, this work invites the reader to slow down and pay closer attention to the textures of modern life.",
     "It is a reminder that good stories are often built from conversations, repetition, and the courage to look a little longer.",
   ];
-
-  const relatedStories = stories.filter((story) => story.id !== article.id).slice(0, 3);
 
   return (
     <main className="min-h-screen bg-[#f5f4f0] text-navy selection:bg-primary selection:text-white">
@@ -65,7 +64,7 @@ export default async function ArticlePage({
 
         <header className="mx-auto max-w-[1100px]">
           <div className="mb-6 flex flex-wrap items-center gap-3 font-accent text-[10px] font-semibold uppercase tracking-[0.17em] text-black/45">
-            <span>{article.date}</span>
+            <span>{article.publishedAt ? new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(new Date(article.publishedAt)) : "Recently published"}</span>
             <span aria-hidden="true">•</span>
             <span className="inline-flex items-center gap-1.5"><Clock3 size={13} /> {article.readTime}</span>
           </div>
@@ -88,7 +87,7 @@ export default async function ArticlePage({
         <div className="mx-auto mt-10 max-w-[1200px] overflow-hidden rounded-[2px] border border-black/10 bg-white shadow-[0_25px_80px_rgba(15,23,42,0.08)]">
           <div className="relative aspect-[16/9] w-full bg-navy">
             <Image
-              src={article.image}
+              src={article.coverImage}
               alt={article.title}
               fill
               priority
@@ -100,7 +99,7 @@ export default async function ArticlePage({
 
         <div className="mx-auto mt-12 grid max-w-[1100px] gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
           <div className="space-y-6 text-[1.05rem] leading-8 text-black/70">
-            <p className="text-lg font-medium text-navy">{article.excerpt}</p>
+            <p className="text-lg font-medium text-navy">{article.description}</p>
 
             {body.map((paragraph, index) => (
               <p key={`${article.id}-paragraph-${index}`}>{paragraph}</p>
@@ -138,14 +137,14 @@ export default async function ArticlePage({
 
           <div className="grid gap-6 md:grid-cols-3">
             {relatedStories.map((story) => (
-              <Link key={story.id} href={`/articles/${story.id}`} className="group block overflow-hidden rounded-[2px] border border-black/10 bg-white transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+              <Link key={story.id} href={`/articles/${story.slug}`} className="group block overflow-hidden rounded-[2px] border border-black/10 bg-white transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
                 <div className="relative aspect-[4/3] overflow-hidden bg-navy">
-                  <Image src={story.image} alt={story.title} fill className="object-cover object-top transition duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src={story.coverImage} alt={story.title} fill className="object-cover object-top transition duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <div className="p-5">
                   <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">{story.category}</p>
                   <h3 className="mt-3 font-display text-2xl font-bold leading-[1.05] tracking-[-0.02em] text-navy">{story.title}</h3>
-                  <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">{story.excerpt}</p>
+                  <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">{story.description}</p>
                 </div>
               </Link>
             ))}

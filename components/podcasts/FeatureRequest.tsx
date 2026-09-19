@@ -2,13 +2,32 @@
 
 import { FormEvent, useState } from "react";
 import { ArrowUpRight, Mail, MapPin, MessageCircle, Send } from "lucide-react";
+import { ApiError, podcastApi } from "@/config/api";
 
 export default function FeatureRequest() {
 	const [submitted, setSubmitted] = useState(false);
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [errorMessage, setErrorMessage] = useState("");
 
-	function handleSubmit(event: FormEvent<HTMLFormElement>) {
+	async function handleSubmit(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
-		setSubmitted(true);
+		setIsSubmitting(true);
+		setErrorMessage("");
+		const formData = new FormData(event.currentTarget);
+
+		try {
+			await podcastApi.requestFeature({
+				name: String(formData.get("name")),
+				email: String(formData.get("email")),
+				topic: String(formData.get("topic")),
+				message: String(formData.get("message")),
+			});
+			setSubmitted(true);
+		} catch (error) {
+			setErrorMessage(error instanceof ApiError ? error.message : "We could not send your request.");
+		} finally {
+			setIsSubmitting(false);
+		}
 	}
 
 	return (
@@ -22,7 +41,7 @@ export default function FeatureRequest() {
 					</div>
 					<div className="mt-10 space-y-4 border-t border-white/20 pt-6 text-sm text-white/80">
 						<a href="mailto:hello@mhengagee.co.ke" className="flex items-center gap-3 transition-colors hover:text-white"><Mail size={17} />hello@mhengagee.co.ke</a>
-						<a href="https://wa.me/254740353025" target="_blank" rel="noreferrer" className="flex items-center gap-3 transition-colors hover:text-white"><MessageCircle size={17} />+254 740 353 025 on WhatsApp</a>
+						<a href="https://wa.me/254712830837" target="_blank" rel="noreferrer" className="flex items-center gap-3 transition-colors hover:text-white"><MessageCircle size={17} />+254 712 830 837 on WhatsApp</a>
 						<p className="flex items-center gap-3"><MapPin size={17} />Nairobi, Kenya · Available worldwide</p>
 					</div>
 				</div>
@@ -44,7 +63,8 @@ export default function FeatureRequest() {
 							</div>
 							<label className="block"><span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">What would you talk about?</span><input required name="topic" type="text" placeholder="Your idea, work, or perspective" className="mt-2 w-full border-b border-white/20 bg-transparent px-0 py-3 text-sm text-white outline-none placeholder:text-white/30 focus:border-accent-cyan" /></label>
 							<label className="block"><span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">A little more detail</span><textarea required name="message" rows={4} placeholder="Tell us why this conversation would matter..." className="mt-2 w-full resize-none border-b border-white/20 bg-transparent px-0 py-3 text-sm text-white outline-none placeholder:text-white/30 focus:border-accent-cyan" /></label>
-							<button type="submit" className="group flex items-center gap-3 bg-accent-cyan px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-white">Request to be featured <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></button>
+							{errorMessage ? <p role="alert" className="text-sm text-red-300">{errorMessage}</p> : null}
+							<button type="submit" disabled={isSubmitting} className="group flex items-center gap-3 bg-accent-cyan px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-60">{isSubmitting ? "Sending..." : "Request to be featured"} {!isSubmitting ? <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /> : null}</button>
 						</form>
 					)}
 				</div>

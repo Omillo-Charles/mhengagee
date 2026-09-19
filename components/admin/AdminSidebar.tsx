@@ -1,9 +1,9 @@
 "use client";
 
 import type { LucideIcon } from "lucide-react";
-import { Camera, LayoutGrid, Mic2, Newspaper, Settings } from "lucide-react";
+import { Camera, LayoutGrid, Settings } from "lucide-react";
 
-type Section = "overview" | "news" | "portfolio" | "podcasts" | "settings";
+type Section = "overview" | "portfolio" | "settings";
 
 type NavItem = {
     id: Section;
@@ -13,9 +13,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
     { id: "overview", label: "Overview", icon: LayoutGrid },
-    { id: "podcasts", label: "Podcasts", icon: Mic2 },
     { id: "portfolio", label: "Portfolio", icon: Camera },
-    { id: "news", label: "News", icon: Newspaper },
 ];
 
 type AdminSidebarProps = {
