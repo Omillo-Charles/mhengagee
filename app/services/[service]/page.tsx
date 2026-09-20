@@ -28,12 +28,12 @@ export default async function ServicePage({
         <div className="mb-10 flex items-center justify-between border-b border-black/10 pb-4">
           <Link
             href="/#services-heading"
-            className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-black/55 transition-colors hover:text-primary"
+            className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-black/55 transition-colors hover:text-primary"
           >
             <ArrowLeft size={14} />
             Back to services
           </Link>
-          <span className="font-accent text-[10px] uppercase tracking-[0.18em] text-black/40">
+          <span className="font-accent text-[10px] uppercase text-black/40">
             {service.kicker}
           </span>
         </div>
@@ -50,10 +50,10 @@ export default async function ServicePage({
             />
           </div>
           <div>
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+            <p className="font-accent text-[10px] font-semibold uppercase text-primary">
               MhengaGee Media
             </p>
-            <h1 className="mt-3 max-w-2xl font-display text-5xl font-bold leading-[0.92] tracking-[-0.04em] sm:text-7xl">
+            <h1 className="mt-3 max-w-2xl font-display text-5xl font-bold leading-[0.92] sm:text-7xl">
               {service.title}
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-black/65">
@@ -61,7 +61,7 @@ export default async function ServicePage({
             </p>
             <Link
               href="/contact"
-              className="group mt-8 inline-flex items-center gap-2 bg-primary px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-navy"
+              className="group mt-8 inline-flex items-center gap-2 bg-primary px-5 py-3 font-accent text-[10px] font-semibold uppercase text-white transition-colors hover:bg-navy"
             >
               Start a project
               <ArrowUpRight
@@ -77,12 +77,12 @@ export default async function ServicePage({
           aria-labelledby="why-heading"
         >
           <div>
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+            <p className="font-accent text-[10px] font-semibold uppercase text-primary">
               Why this matters
             </p>
             <h2
               id="why-heading"
-              className="mt-3 max-w-md font-display text-4xl font-bold leading-[0.95] tracking-[-0.035em] sm:text-5xl"
+              className="mt-3 max-w-md font-display text-4xl font-bold leading-[0.95] sm:text-5xl"
             >
               Make the work easier to see, trust, and choose.
             </h2>
@@ -107,12 +107,12 @@ export default async function ServicePage({
           aria-labelledby="deliverables-heading"
         >
           <div>
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-cyan">
+            <p className="font-accent text-[10px] font-semibold uppercase text-accent-cyan">
               What you get
             </p>
             <h2
               id="deliverables-heading"
-              className="mt-3 max-w-md font-display text-4xl font-bold leading-[0.95] tracking-[-0.035em] sm:text-5xl"
+              className="mt-3 max-w-md font-display text-4xl font-bold leading-[0.95] sm:text-5xl"
             >
               A clear output, built for real use.
             </h2>
@@ -134,12 +134,12 @@ export default async function ServicePage({
 
         <section className="mt-20" aria-labelledby="process-heading">
           <div className="max-w-xl">
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+            <p className="font-accent text-[10px] font-semibold uppercase text-primary">
               How we work
             </p>
             <h2
               id="process-heading"
-              className="mt-3 font-display text-4xl font-bold leading-[0.95] tracking-[-0.035em] sm:text-5xl"
+              className="mt-3 font-display text-4xl font-bold leading-[0.95] sm:text-5xl"
             >
               A thoughtful process from brief to delivery.
             </h2>
@@ -150,7 +150,7 @@ export default async function ServicePage({
                 key={phase.step}
                 className="border-b border-black/10 py-6 md:border-b-0 md:border-r md:px-5 md:first:pl-0 md:last:border-r-0"
               >
-                <span className="font-accent text-[10px] font-semibold tracking-[0.16em] text-primary">
+                <span className="font-accent text-[10px] font-semibold text-primary">
                   {phase.step}
                 </span>
                 <h3 className="mt-5 font-display text-2xl font-bold text-navy">
@@ -169,12 +169,12 @@ export default async function ServicePage({
           aria-labelledby="fit-heading"
         >
           <div>
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+            <p className="font-accent text-[10px] font-semibold uppercase text-primary">
               A good fit for
             </p>
             <h2
               id="fit-heading"
-              className="mt-3 font-display text-4xl font-bold leading-[0.95] tracking-[-0.035em] sm:text-5xl"
+              className="mt-3 font-display text-4xl font-bold leading-[0.95] sm:text-5xl"
             >
               Good work starts with the right conversation.
             </h2>
@@ -193,7 +193,7 @@ export default async function ServicePage({
 
         <section className="mt-20 flex flex-col gap-6 bg-primary p-6 text-white sm:p-10 lg:flex-row lg:items-center lg:justify-between lg:p-14">
           <div>
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-white/65">
+            <p className="font-accent text-[10px] font-semibold uppercase text-white/65">
               Ready when you are
             </p>
             <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold leading-[0.95] sm:text-5xl">
@@ -202,7 +202,7 @@ export default async function ServicePage({
           </div>
           <Link
             href="/contact"
-            className="group inline-flex w-fit shrink-0 items-center gap-2 bg-white px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-navy hover:text-white"
+            className="group inline-flex w-fit shrink-0 items-center gap-2 bg-white px-5 py-3 font-accent text-[10px] font-semibold uppercase text-navy transition-colors hover:bg-navy hover:text-white"
           >
             Talk to us{" "}
             <ArrowUpRight

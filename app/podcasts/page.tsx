@@ -72,11 +72,11 @@ export default function PodcastsPage() {
     <main className="min-h-screen bg-[#f5f4f0] selection:bg-primary selection:text-white">
       <section className="mx-auto max-w-[1440px] px-5 pb-20 pt-8 sm:px-8 sm:pt-12 lg:px-12 lg:pt-16">
         <div className="mb-8 flex items-center justify-between border-y border-black/10 py-4">
-          <div className="flex items-center gap-3 font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+          <div className="flex items-center gap-3 font-accent text-[10px] font-semibold uppercase text-primary">
             <Headphones size={16} />
             DSM Media Podcasts
           </div>
-          <div className="flex gap-6 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-black/50">
+          <div className="flex gap-6 font-accent text-[10px] font-semibold uppercase text-black/50">
             <span>All videos</span>
             <span>YouTube channel</span>
           </div>
@@ -115,15 +115,15 @@ export default function PodcastsPage() {
                   sizes="(max-width: 1024px) 100vw, 60vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-black/40" />
-                <span className="absolute left-5 top-5 bg-accent-cyan px-3 py-1.5 font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-navy sm:left-8 sm:top-8">
+                <span className="absolute left-5 top-5 bg-accent-cyan px-3 py-1.5 font-accent text-[9px] font-semibold uppercase text-navy sm:left-8 sm:top-8">
                   Latest episode
                 </span>
               </div>
               <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-14">
-                <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-cyan">
+                <p className="font-accent text-[10px] font-semibold uppercase text-accent-cyan">
                   Latest conversation
                 </p>
-                <h1 className="mt-4 font-display text-4xl font-bold leading-[0.94] tracking-[-0.035em] sm:text-6xl">
+                <h1 className="mt-4 font-display text-4xl font-bold leading-[0.94] sm:text-6xl">
                   {featuredEpisode.title}
                 </h1>
                 <p className="mt-5 max-w-lg font-sans text-sm leading-7 text-white/65">
@@ -134,7 +134,7 @@ export default function PodcastsPage() {
                     href={featuredEpisode.videoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 rounded-full bg-[#FF0000] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] transition-colors hover:bg-[#CC0000]"
+                    className="flex items-center gap-2 rounded-full bg-[#FF0000] px-5 py-3 font-accent text-[10px] font-semibold uppercase transition-colors hover:bg-[#CC0000]"
                   >
                     Watch on YouTube <Play size={14} fill="currentColor" />
                   </a>
@@ -143,14 +143,14 @@ export default function PodcastsPage() {
             </article>
             <div className="mb-7 mt-14 flex items-end justify-between border-b border-black/10 pb-4">
               <div>
-                <p className="mb-2 font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                <p className="mb-2 font-accent text-[10px] font-semibold uppercase text-primary">
                   From DSM Media
                 </p>
-                <h2 className="font-display text-3xl font-bold uppercase tracking-[-0.03em] text-navy sm:text-4xl">
+                <h2 className="font-display text-3xl font-bold uppercase text-navy sm:text-4xl">
                   More conversations
                 </h2>
               </div>
-              <span className="font-accent text-[10px] uppercase tracking-[0.16em] text-black/40">
+              <span className="font-accent text-[10px] uppercase text-black/40">
                 Watch at your pace
               </span>
             </div>
@@ -179,7 +179,7 @@ export default function PodcastsPage() {
                     </span>
                   </a>
                   <div className="p-5 sm:p-6">
-                    <div className="font-accent text-[10px] uppercase tracking-[0.12em] text-black/40">
+                    <div className="font-accent text-[10px] uppercase text-black/40">
                       {new Intl.DateTimeFormat("en-US", {
                         month: "short",
                         day: "numeric",
@@ -187,7 +187,7 @@ export default function PodcastsPage() {
                       }).format(new Date(episode.publishedAt))}{" "}
                       · Podcast video
                     </div>
-                    <h2 className="mt-3 font-display text-2xl font-bold leading-[1.04] tracking-[-0.025em] text-navy transition-colors group-hover:text-primary">
+                    <h2 className="mt-3 font-display text-2xl font-bold leading-[1.04] text-navy transition-colors group-hover:text-primary">
                       {episode.title}
                     </h2>
                     <p className="mt-3 line-clamp-2 font-sans text-sm leading-6 text-black/55">
@@ -203,7 +203,7 @@ export default function PodcastsPage() {
                   type="button"
                   onClick={loadMoreEpisodes}
                   disabled={isLoadingMore}
-                  className="border border-navy bg-navy px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-primary disabled:cursor-wait disabled:opacity-60"
+                  className="border border-navy bg-navy px-5 py-3 font-accent text-[10px] font-semibold uppercase text-white transition-colors hover:bg-primary disabled:cursor-wait disabled:opacity-60"
                 >
                   {isLoadingMore ? "Loading more" : "Load more videos"}
                 </button>

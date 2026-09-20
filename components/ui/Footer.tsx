@@ -28,10 +28,10 @@ export default function Footer() {
                 />
               </span>
               <span className="flex flex-col leading-none">
-                <span className="font-display text-xl font-bold uppercase tracking-[0.14em]">
+                <span className="font-display text-xl font-bold uppercase">
                   MHENGAGEE
                 </span>
-                <span className="mt-1 font-accent text-[10px] font-semibold uppercase tracking-[0.42em] text-[var(--brand-accent-cyan)]">
+                <span className="mt-1 font-accent text-[10px] font-semibold uppercase text-[var(--brand-accent-cyan)]">
                   Media
                 </span>
               </span>
@@ -40,7 +40,7 @@ export default function Footer() {
               Cinematic photography, film, and visual stories from Nairobi to
               everywhere your work needs to be seen.
             </p>
-            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-white/65">
+            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 font-accent text-[10px] font-semibold uppercase text-white/65">
               <a
                 href="https://www.instagram.com/mhenga_gee"
                 target="_blank"
@@ -67,7 +67,7 @@ export default function Footer() {
           </div>
 
           <nav aria-label="Footer navigation">
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
+            <p className="font-accent text-[10px] font-semibold uppercase text-white/40">
               Navigate
             </p>
             <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-4 sm:grid-cols-1 sm:gap-y-3">
@@ -88,7 +88,7 @@ export default function Footer() {
           </nav>
 
           <div id="contact">
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
+            <p className="font-accent text-[10px] font-semibold uppercase text-white/40">
               Find us here
             </p>
             <div className="mt-5 space-y-4">
@@ -123,7 +123,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-white/15 pt-5 font-accent text-[10px] uppercase tracking-[0.14em] text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 border-t border-white/15 pt-5 font-accent text-[10px] uppercase text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} Mhengagee Media</span>
           <span>
             Built and Maintained by{" "}

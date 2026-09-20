@@ -22,12 +22,12 @@ export default function NewsletterSignup() {
           <div className="pointer-events-none absolute -bottom-20 -left-10 h-52 w-52 rounded-full border border-white/15" />
           <Mail size={28} className="relative text-white" strokeWidth={1.5} />
           <div className="relative">
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-white/65">
+            <p className="font-accent text-[10px] font-semibold uppercase text-white/65">
               The MhengaGee newsletter
             </p>
             <h2
               id="newsletter-heading"
-              className="mt-3 max-w-md font-display text-4xl font-bold leading-[0.95] tracking-[-0.035em] sm:text-5xl"
+              className="mt-3 max-w-md font-display text-4xl font-bold leading-[0.95] sm:text-5xl"
             >
               Don&apos;t miss the next story.
             </h2>
@@ -71,7 +71,7 @@ export default function NewsletterSignup() {
                 </label>
                 <button
                   type="submit"
-                  className="group inline-flex shrink-0 items-center justify-center gap-2 bg-accent-cyan px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-white"
+                  className="group inline-flex shrink-0 items-center justify-center gap-2 bg-accent-cyan px-5 py-3 font-accent text-[10px] font-semibold uppercase text-navy transition-colors hover:bg-white"
                 >
                   Subscribe{" "}
                   <ArrowUpRight
@@ -80,7 +80,7 @@ export default function NewsletterSignup() {
                   />
                 </button>
               </form>
-              <p className="mt-4 font-accent text-[9px] uppercase tracking-[0.14em] text-white/40">
+              <p className="mt-4 font-accent text-[9px] uppercase text-white/40">
                 No noise. Just the good stuff.
               </p>
             </>

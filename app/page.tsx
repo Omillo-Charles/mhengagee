@@ -24,18 +24,18 @@ export default function Page() {
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
-              <p className="absolute bottom-6 left-6 font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-cyan sm:bottom-8 sm:left-8">
+              <p className="absolute bottom-6 left-6 font-accent text-[10px] font-semibold uppercase text-accent-cyan sm:bottom-8 sm:left-8">
                 Made with intention
               </p>
             </div>
 
             <div className="flex flex-col justify-center p-5 sm:p-10 lg:p-14">
-              <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-cyan">
+              <p className="font-accent text-[10px] font-semibold uppercase text-accent-cyan">
                 What we do
               </p>
               <h2
                 id="services-heading"
-                className="mt-3 max-w-xl font-display text-3xl font-bold leading-[0.95] tracking-[-0.04em] sm:text-6xl"
+                className="mt-3 max-w-xl font-display text-3xl font-bold leading-[0.95] sm:text-6xl"
               >
                 Stories built to be seen and remembered.
               </h2>
@@ -82,7 +82,7 @@ export default function Page() {
               <div className="mt-5 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="group flex w-fit items-center gap-2 border border-white/30 px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] transition-colors hover:border-accent-cyan hover:bg-accent-cyan hover:text-navy"
+                  className="group flex w-fit items-center gap-2 border border-white/30 px-5 py-3 font-accent text-[10px] font-semibold uppercase transition-colors hover:border-accent-cyan hover:bg-accent-cyan hover:text-navy"
                 >
                   Start a project
                   <ArrowUpRight
@@ -94,7 +94,7 @@ export default function Page() {
                   href="https://wa.me/254712830837"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex w-fit items-center gap-2 border border-[#25D366] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white"
+                  className="flex w-fit items-center gap-2 border border-[#25D366] px-5 py-3 font-accent text-[10px] font-semibold uppercase text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white"
                 >
                   WhatsApp
                 </a>
@@ -109,12 +109,12 @@ export default function Page() {
         >
           <div className="mb-8 flex flex-col items-start gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+              <p className="font-accent text-[10px] font-semibold uppercase text-primary">
                 Explore our services
               </p>
               <h2
                 id="service-cards-heading"
-                className="mt-2 max-w-2xl font-display text-3xl font-bold leading-[1.02] tracking-[-0.03em] text-navy sm:text-4xl"
+                className="mt-2 max-w-2xl font-display text-3xl font-bold leading-[1.02] text-navy sm:text-4xl"
               >
                 Find the right way to tell your story.
               </h2>
@@ -122,14 +122,14 @@ export default function Page() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:text-primary"
+                className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-navy transition-colors hover:text-primary"
               >
                 View what we&apos;ve done already
                 <ArrowUpRight size={14} />
               </Link>
               <Link
                 href="/contact"
-                className="hidden items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:text-primary sm:inline-flex"
+                className="hidden items-center gap-2 font-accent text-[10px] font-semibold uppercase text-navy transition-colors hover:text-primary sm:inline-flex"
               >
                 Start a project
                 <ArrowUpRight size={14} />
@@ -153,7 +153,7 @@ export default function Page() {
                   />
                 </div>
                 <div className="p-5">
-                  <p className="font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-primary">
+                  <p className="font-accent text-[9px] font-semibold uppercase text-primary">
                     {service.kicker}
                   </p>
                   <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-navy">
@@ -164,7 +164,7 @@ export default function Page() {
                   </p>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="group mt-5 inline-flex items-center gap-2 border border-navy px-4 py-2.5 font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-navy transition-colors hover:bg-navy hover:text-white"
+                    className="group mt-5 inline-flex items-center gap-2 border border-navy px-4 py-2.5 font-accent text-[10px] font-semibold uppercase text-navy transition-colors hover:bg-navy hover:text-white"
                   >
                     Learn more
                     <ArrowUpRight

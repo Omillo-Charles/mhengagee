@@ -57,7 +57,7 @@ export default function VerifyEmailPage() {
       <section className="mx-auto max-w-[620px] rounded-[2px] bg-white p-6 shadow-[0_24px_80px_rgba(15,23,42,0.12)] sm:p-12">
         <Link
           href="/"
-          className="flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-black/45 hover:text-primary"
+          className="flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-black/45 hover:text-primary"
         >
           <ArrowLeft size={14} />
           Back home
@@ -75,7 +75,7 @@ export default function VerifyEmailPage() {
             </p>
             <Link
               href={user?.role === "ADMIN" ? "/admin" : "/"}
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-accent text-[10px] font-semibold uppercase text-white"
             >
               Continue
             </Link>
@@ -91,7 +91,7 @@ export default function VerifyEmailPage() {
             </p>
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
               <label className="block">
-                <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-black/50">
+                <span className="font-accent text-[10px] font-semibold uppercase text-black/50">
                   Verification code
                 </span>
                 <input
@@ -100,7 +100,7 @@ export default function VerifyEmailPage() {
                   maxLength={6}
                   name="otp"
                   inputMode="numeric"
-                  className="mt-2 w-full border-b border-black/15 bg-transparent px-0 py-3 text-lg tracking-[0.4em] text-navy outline-none focus:border-primary"
+                  className="mt-2 w-full border-b border-black/15 bg-transparent px-0 py-3 text-lg text-navy outline-none focus:border-primary"
                   placeholder="000000"
                 />
               </label>
@@ -113,7 +113,7 @@ export default function VerifyEmailPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex w-full items-center justify-center gap-3 rounded-full bg-primary px-5 py-3.5 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white hover:bg-navy disabled:cursor-wait disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-3 rounded-full bg-primary px-5 py-3.5 font-accent text-[10px] font-semibold uppercase text-white hover:bg-navy disabled:cursor-wait disabled:opacity-60"
               >
                 {isSubmitting ? "Verifying..." : "Verify email"}
                 <Check size={15} />
@@ -123,7 +123,7 @@ export default function VerifyEmailPage() {
               type="button"
               onClick={resend}
               disabled={isResending}
-              className="mt-6 flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-primary hover:text-navy disabled:opacity-50"
+              className="mt-6 flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-primary hover:text-navy disabled:opacity-50"
             >
               {isResending ? "Resending..." : "Resend code"}
               <RefreshCw size={14} />

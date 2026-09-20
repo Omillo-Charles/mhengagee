@@ -55,7 +55,7 @@ export default function ResetPasswordPage() {
       <section className="mx-auto max-w-[620px] rounded-[2px] bg-white p-6 shadow-[0_24px_80px_rgba(15,23,42,0.12)] sm:p-12">
         <Link
           href="/sign-in"
-          className="flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-black/45 hover:text-primary"
+          className="flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-black/45 hover:text-primary"
         >
           <ArrowLeft size={14} />
           Back to sign in
@@ -74,14 +74,14 @@ export default function ResetPasswordPage() {
             </p>
             <Link
               href="/sign-in"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-accent text-[10px] font-semibold uppercase text-white"
             >
               Continue to sign in
             </Link>
           </div>
         ) : (
           <div className="mt-16">
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">
+            <p className="font-accent text-[10px] font-semibold uppercase text-primary">
               New password
             </p>
             <h1 className="mt-3 font-display text-4xl font-bold uppercase text-navy">
@@ -89,7 +89,7 @@ export default function ResetPasswordPage() {
             </h1>
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
               <label className="block">
-                <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-black/50">
+                <span className="font-accent text-[10px] font-semibold uppercase text-black/50">
                   New password
                 </span>
                 <input
@@ -102,7 +102,7 @@ export default function ResetPasswordPage() {
                 />
               </label>
               <label className="block">
-                <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-black/50">
+                <span className="font-accent text-[10px] font-semibold uppercase text-black/50">
                   Confirm password
                 </span>
                 <input
@@ -122,7 +122,7 @@ export default function ResetPasswordPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex w-full items-center justify-center gap-3 rounded-full bg-primary px-5 py-3.5 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white hover:bg-navy disabled:cursor-wait disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-3 rounded-full bg-primary px-5 py-3.5 font-accent text-[10px] font-semibold uppercase text-white hover:bg-navy disabled:cursor-wait disabled:opacity-60"
               >
                 {isSubmitting ? "Updating..." : "Update password"}
                 <KeyRound size={15} />

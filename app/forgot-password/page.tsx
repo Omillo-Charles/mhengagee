@@ -45,7 +45,7 @@ export default function ForgotPasswordPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/10" />
           <div className="absolute bottom-0 p-10 text-white">
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.24em] text-accent-cyan">
+            <p className="font-accent text-[10px] font-semibold uppercase text-accent-cyan">
               Account access
             </p>
             <h1 className="mt-5 max-w-sm font-display text-5xl font-bold uppercase leading-[0.9]">
@@ -56,7 +56,7 @@ export default function ForgotPasswordPage() {
         <div className="flex flex-col bg-white p-6 sm:p-10 lg:p-14">
           <Link
             href="/sign-in"
-            className="flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-black/45 hover:text-primary"
+            className="flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-black/45 hover:text-primary"
           >
             <ArrowLeft size={14} />
             Back to sign in
@@ -76,14 +76,14 @@ export default function ForgotPasswordPage() {
                 </p>
                 <Link
                   href="/sign-in"
-                  className="mt-8 inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary"
+                  className="mt-8 inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-primary"
                 >
                   Return to sign in <ArrowUpRight size={14} />
                 </Link>
               </div>
             ) : (
               <>
-                <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">
+                <p className="font-accent text-[10px] font-semibold uppercase text-primary">
                   Reset access
                 </p>
                 <h2 className="mt-3 font-display text-4xl font-bold uppercase leading-none text-navy">
@@ -94,7 +94,7 @@ export default function ForgotPasswordPage() {
                 </p>
                 <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                   <label className="block">
-                    <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-black/50">
+                    <span className="font-accent text-[10px] font-semibold uppercase text-black/50">
                       Email address
                     </span>
                     <input
@@ -113,7 +113,7 @@ export default function ForgotPasswordPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex w-full items-center justify-center gap-3 rounded-full bg-primary px-5 py-3.5 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white hover:bg-navy disabled:cursor-wait disabled:opacity-60"
+                    className="flex w-full items-center justify-center gap-3 rounded-full bg-primary px-5 py-3.5 font-accent text-[10px] font-semibold uppercase text-white hover:bg-navy disabled:cursor-wait disabled:opacity-60"
                   >
                     {isSubmitting ? "Sending..." : "Send reset link"}
                     <Mail size={15} />

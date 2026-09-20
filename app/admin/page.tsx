@@ -194,17 +194,17 @@ export default function AdminPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-4 border-b border-black/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+          <p className="font-accent text-[10px] font-semibold uppercase text-primary">
             Portfolio
           </p>
-          <h1 className="mt-2 font-display text-4xl font-bold leading-[0.98] tracking-[-0.04em] text-navy">
+          <h1 className="mt-2 font-display text-4xl font-bold leading-[0.98] text-navy">
             Gallery
           </h1>
         </div>
         <button
           type="button"
           onClick={() => openAdd("portfolio")}
-          className="inline-flex items-center gap-2 bg-primary px-4 py-2.5 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-navy"
+          className="inline-flex items-center gap-2 bg-primary px-4 py-2.5 font-accent text-[10px] font-semibold uppercase text-white transition-colors hover:bg-navy"
         >
           <Plus size={14} />
           Add image
@@ -236,11 +236,11 @@ export default function AdminPage() {
             </div>
             <div className="space-y-3 p-4">
               <div className="flex items-center justify-between gap-2">
-                <p className="font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/45">
+                <p className="font-accent text-[9px] font-semibold uppercase text-black/45">
                   {item.category}
                 </p>
                 {item.feature && (
-                  <span className="rounded-full bg-primary/10 px-2 py-1 font-accent text-[8px] font-semibold uppercase tracking-[0.14em] text-primary">
+                  <span className="rounded-full bg-primary/10 px-2 py-1 font-accent text-[8px] font-semibold uppercase text-primary">
                     Featured
                   </span>
                 )}
@@ -252,7 +252,7 @@ export default function AdminPage() {
                 <button
                   type="button"
                   onClick={() => openEdit("portfolio", item)}
-                  className="inline-flex items-center gap-2 border border-black/10 bg-white px-3 py-2 font-accent text-[9px] font-semibold uppercase tracking-[0.14em] text-navy hover:border-primary hover:text-primary"
+                  className="inline-flex items-center gap-2 border border-black/10 bg-white px-3 py-2 font-accent text-[9px] font-semibold uppercase text-navy hover:border-primary hover:text-primary"
                 >
                   <Pencil size={12} />
                   Edit
@@ -260,7 +260,7 @@ export default function AdminPage() {
                 <button
                   type="button"
                   onClick={() => handleDelete("portfolio", item.id)}
-                  className="inline-flex items-center gap-2 border border-red-200 bg-red-50 px-3 py-2 font-accent text-[9px] font-semibold uppercase tracking-[0.14em] text-red-700 hover:bg-red-100"
+                  className="inline-flex items-center gap-2 border border-red-200 bg-red-50 px-3 py-2 font-accent text-[9px] font-semibold uppercase text-red-700 hover:bg-red-100"
                 >
                   <Trash2 size={12} />
                   Delete
@@ -276,10 +276,10 @@ export default function AdminPage() {
   const renderSettingsPanel = () => (
     <div className="space-y-6">
       <div className="border-b border-black/10 pb-5">
-        <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+        <p className="font-accent text-[10px] font-semibold uppercase text-primary">
           Settings
         </p>
-        <h1 className="mt-2 font-display text-4xl font-bold leading-[0.98] tracking-[-0.04em] text-navy">
+        <h1 className="mt-2 font-display text-4xl font-bold leading-[0.98] text-navy">
           Account
         </h1>
       </div>
@@ -312,10 +312,10 @@ export default function AdminPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-4 border-b border-black/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+          <p className="font-accent text-[10px] font-semibold uppercase text-primary">
             Overview
           </p>
-          <h1 className="mt-2 font-display text-4xl font-bold leading-[0.98] tracking-[-0.04em] text-navy">
+          <h1 className="mt-2 font-display text-4xl font-bold leading-[0.98] text-navy">
             Dashboard
           </h1>
         </div>
@@ -326,7 +326,7 @@ export default function AdminPage() {
               setActiveSection("portfolio");
               openAdd("portfolio");
             }}
-            className="inline-flex items-center gap-2 bg-navy px-4 py-2.5 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-primary"
+            className="inline-flex items-center gap-2 bg-navy px-4 py-2.5 font-accent text-[10px] font-semibold uppercase text-white transition-colors hover:bg-primary"
           >
             <Plus size={14} />
             Add portfolio
@@ -340,11 +340,11 @@ export default function AdminPage() {
             key={stat.label}
             className="rounded-[2px] border border-black/10 bg-[#f8f7f3] p-5"
           >
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-black/45">
+            <p className="font-accent text-[10px] font-semibold uppercase text-black/45">
               {stat.label}
             </p>
             <p
-              className={`mt-5 font-display text-4xl font-bold tracking-[-0.04em] ${stat.tone}`}
+              className={`mt-5 font-display text-4xl font-bold ${stat.tone}`}
             >
               {stat.value}
             </p>
@@ -384,7 +384,7 @@ export default function AdminPage() {
               <h2 className="font-display text-2xl font-bold text-navy">
                 Quick summary
               </h2>
-              <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-black/40">
+              <span className="font-accent text-[10px] font-semibold uppercase text-black/40">
                 Live
               </span>
             </div>
@@ -417,14 +417,14 @@ export default function AdminPage() {
                   className="flex items-center justify-between gap-4 rounded-[2px] border border-black/10 bg-[#f8f7f3] p-4"
                 >
                   <div>
-                    <p className="font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-black/45">
+                    <p className="font-accent text-[9px] font-semibold uppercase text-black/45">
                       {item.type}
                     </p>
                     <p className="mt-2 font-display text-xl font-bold text-navy">
                       {item.title}
                     </p>
                   </div>
-                  <span className="font-accent text-[10px] uppercase tracking-[0.14em] text-black/45">
+                  <span className="font-accent text-[10px] uppercase text-black/45">
                     {item.time}
                   </span>
                 </div>
@@ -433,7 +433,7 @@ export default function AdminPage() {
           </div>
 
           <div className="rounded-[2px] border border-black/10 bg-navy p-5 text-white">
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-cyan">
+            <p className="font-accent text-[10px] font-semibold uppercase text-accent-cyan">
               Checklist
             </p>
             <h2 className="mt-3 font-display text-2xl font-bold">

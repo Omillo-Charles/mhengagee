@@ -61,18 +61,18 @@ export default async function ArticlePage({
         <div className="mb-8 flex items-center justify-between border-b border-black/10 pb-4">
           <Link
             href="/news"
-            className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-black/55 transition-colors hover:text-primary"
+            className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-black/55 transition-colors hover:text-primary"
           >
             <ArrowLeft size={14} />
             Back to news
           </Link>
-          <span className="font-accent text-[10px] uppercase tracking-[0.18em] text-black/40">
+          <span className="font-accent text-[10px] uppercase text-black/40">
             {article.category}
           </span>
         </div>
 
         <header className="mx-auto max-w-[1100px]">
-          <div className="mb-6 flex flex-wrap items-center gap-3 font-accent text-[10px] font-semibold uppercase tracking-[0.17em] text-black/45">
+          <div className="mb-6 flex flex-wrap items-center gap-3 font-accent text-[10px] font-semibold uppercase text-black/45">
             <span>
               {article.publishedAt
                 ? new Intl.DateTimeFormat("en-US", {
@@ -88,20 +88,20 @@ export default async function ArticlePage({
             </span>
           </div>
 
-          <h1 className="max-w-4xl font-display text-4xl font-bold leading-[0.96] tracking-[-0.04em] text-navy sm:text-5xl lg:text-7xl">
+          <h1 className="max-w-4xl font-display text-4xl font-bold leading-[0.96] text-navy sm:text-5xl lg:text-7xl">
             {article.title}
           </h1>
 
           <div className="mt-6 flex flex-col gap-5 border-y border-black/10 py-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="font-accent text-[10px] uppercase tracking-[0.18em] text-black/45">
+              <p className="font-accent text-[10px] uppercase text-black/45">
                 By
               </p>
               <p className="mt-2 font-display text-xl font-semibold text-navy">
                 {article.author}
               </p>
             </div>
-            <div className="rounded-full border border-black/10 bg-white px-4 py-2 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+            <div className="rounded-full border border-black/10 bg-white px-4 py-2 font-accent text-[10px] font-semibold uppercase text-primary">
               Story feature
             </div>
           </div>
@@ -133,7 +133,7 @@ export default async function ArticlePage({
 
           <aside className="lg:pt-8">
             <div className="rounded-[2px] border border-black/10 bg-white p-5 shadow-sm">
-              <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+              <p className="font-accent text-[10px] font-semibold uppercase text-primary">
                 In this story
               </p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-black/65">
@@ -153,16 +153,16 @@ export default async function ArticlePage({
         <section className="mx-auto mt-16 max-w-[1100px] border-t border-black/10 pt-10">
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
-              <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+              <p className="font-accent text-[10px] font-semibold uppercase text-primary">
                 More stories
               </p>
-              <h2 className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-navy">
+              <h2 className="mt-2 font-display text-3xl font-bold text-navy">
                 Continue reading
               </h2>
             </div>
             <Link
               href="/news"
-              className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-navy transition-colors hover:text-primary"
+              className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-navy transition-colors hover:text-primary"
             >
               View all news
               <ArrowUpRight size={14} />
@@ -186,10 +186,10 @@ export default async function ArticlePage({
                   />
                 </div>
                 <div className="p-5">
-                  <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                  <p className="font-accent text-[10px] font-semibold uppercase text-primary">
                     {story.category}
                   </p>
-                  <h3 className="mt-3 font-display text-2xl font-bold leading-[1.05] tracking-[-0.02em] text-navy">
+                  <h3 className="mt-3 font-display text-2xl font-bold leading-[1.05] text-navy">
                     {story.title}
                   </h3>
                   <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">

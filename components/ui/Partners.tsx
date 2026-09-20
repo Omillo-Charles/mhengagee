@@ -15,12 +15,12 @@ export default function Partners() {
       aria-labelledby="partners-heading"
       className="mt-8 border-t border-black/10 pt-6"
     >
-      <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-black/40">
+      <p className="font-accent text-[10px] font-semibold uppercase text-black/40">
         In collaboration with
       </p>
       <h2
         id="partners-heading"
-        className="mt-2 font-display text-2xl font-bold uppercase tracking-[-0.02em] text-navy"
+        className="mt-2 font-display text-2xl font-bold uppercase text-navy"
       >
         Our partners
       </h2>
@@ -48,14 +48,14 @@ export default function Partners() {
               className="group block"
             >
               {logo}
-              <span className="mt-2 block font-accent text-[9px] font-semibold uppercase tracking-[0.14em] text-black/45 transition-colors group-hover:text-primary">
+              <span className="mt-2 block font-accent text-[9px] font-semibold uppercase text-black/45 transition-colors group-hover:text-primary">
                 {partner.name}
               </span>
             </a>
           ) : (
             <div key={partner.name} className="group block">
               {logo}
-              <span className="mt-2 block font-accent text-[9px] font-semibold uppercase tracking-[0.14em] text-black/45">
+              <span className="mt-2 block font-accent text-[9px] font-semibold uppercase text-black/45">
                 {partner.name}
               </span>
             </div>

@@ -52,10 +52,10 @@ export default function Navbar() {
             />
           </span>
           <span className="flex flex-col leading-none text-[var(--brand-navy)]">
-            <span className="font-display text-lg font-bold uppercase tracking-[0.14em]">
+            <span className="font-display text-lg font-bold uppercase">
               MHENGAGEE
             </span>
-            <span className="mt-1 font-accent text-[10px] font-semibold uppercase tracking-[0.42em] text-[var(--brand-primary)]">
+            <span className="mt-1 font-accent text-[10px] font-semibold uppercase text-[var(--brand-primary)]">
               Media
             </span>
           </span>
@@ -74,7 +74,7 @@ export default function Navbar() {
                   key={item.label}
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`relative py-2 font-accent text-xs font-bold uppercase tracking-[0.16em] transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-[var(--brand-primary)] after:transition-transform after:duration-300 ${isActive ? "text-[var(--brand-primary)] after:scale-x-100" : "text-[var(--brand-navy)] after:origin-right after:scale-x-0 hover:text-[var(--brand-primary)] hover:after:origin-left hover:after:scale-x-100"}`}
+                  className={`relative py-2 font-accent text-xs font-bold uppercase transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-[var(--brand-primary)] after:transition-transform after:duration-300 ${isActive ? "text-[var(--brand-primary)] after:scale-x-100" : "text-[var(--brand-navy)] after:origin-right after:scale-x-0 hover:text-[var(--brand-primary)] hover:after:origin-left hover:after:scale-x-100"}`}
                 >
                   {item.label}
                 </Link>
@@ -109,7 +109,7 @@ export default function Navbar() {
                     <button
                       type="button"
                       onClick={handleSignOut}
-                      className="flex w-full items-center gap-2 px-3 py-2 text-left font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-navy hover:bg-black/5"
+                      className="flex w-full items-center gap-2 px-3 py-2 text-left font-accent text-[10px] font-semibold uppercase text-navy hover:bg-black/5"
                     >
                       <LogOut size={14} />
                       Log out
@@ -131,7 +131,7 @@ export default function Navbar() {
           {isLoading || !user ? (
             <Link
               href="/sign-in"
-              className="hidden items-center gap-2 rounded-full bg-[var(--brand-navy)] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[var(--brand-primary)] sm:flex"
+              className="hidden items-center gap-2 rounded-full bg-[var(--brand-navy)] px-5 py-3 font-accent text-[10px] font-semibold uppercase text-white transition-colors hover:bg-[var(--brand-primary)] sm:flex"
             >
               Sign in{" "}
               <span aria-hidden="true" className="text-base leading-none">
@@ -141,7 +141,7 @@ export default function Navbar() {
           ) : user.role === "ADMIN" ? (
             <Link
               href="/admin"
-              className="hidden items-center gap-2 rounded-full bg-[var(--brand-navy)] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[var(--brand-primary)] sm:flex"
+              className="hidden items-center gap-2 rounded-full bg-[var(--brand-navy)] px-5 py-3 font-accent text-[10px] font-semibold uppercase text-white transition-colors hover:bg-[var(--brand-primary)] sm:flex"
             >
               Admin{" "}
               <span aria-hidden="true" className="text-base leading-none">
@@ -154,7 +154,7 @@ export default function Navbar() {
                 type="button"
                 onClick={() => setIsAccountOpen((open) => !open)}
                 aria-expanded={isAccountOpen}
-                className="flex items-center gap-2 rounded-full bg-[var(--brand-navy)] px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[var(--brand-primary)]"
+                className="flex items-center gap-2 rounded-full bg-[var(--brand-navy)] px-5 py-3 font-accent text-[10px] font-semibold uppercase text-white transition-colors hover:bg-[var(--brand-primary)]"
               >
                 {accountLabel}
                 <ChevronDown size={14} />
@@ -164,7 +164,7 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={handleSignOut}
-                    className="flex w-full items-center gap-2 px-3 py-2 text-left font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-navy hover:bg-black/5"
+                    className="flex w-full items-center gap-2 px-3 py-2 text-left font-accent text-[10px] font-semibold uppercase text-navy hover:bg-black/5"
                   >
                     <LogOut size={14} />
                     Log out
@@ -190,7 +190,7 @@ export default function Navbar() {
                   key={item.label}
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`shrink-0 whitespace-nowrap border-b-2 pb-2 font-accent text-[11px] font-bold uppercase tracking-[0.16em] transition-colors ${isActive ? "border-[var(--brand-primary)] text-[var(--brand-primary)]" : "border-transparent text-[var(--brand-navy)] hover:text-[var(--brand-primary)]"}`}
+                  className={`shrink-0 whitespace-nowrap border-b-2 pb-2 font-accent text-[11px] font-bold uppercase transition-colors ${isActive ? "border-[var(--brand-primary)] text-[var(--brand-primary)]" : "border-transparent text-[var(--brand-navy)] hover:text-[var(--brand-primary)]"}`}
                 >
                   {item.label}
                 </Link>

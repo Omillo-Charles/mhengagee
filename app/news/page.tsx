@@ -71,7 +71,7 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
                       ? "/news"
                       : `/news?category=${category.toLowerCase()}`
                   }
-                  className={`flex shrink-0 items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] transition-colors hover:text-primary ${isActive ? "text-primary" : "text-black/55"}`}
+                  className={`flex shrink-0 items-center gap-2 font-accent text-[10px] font-semibold uppercase transition-colors hover:text-primary ${isActive ? "text-primary" : "text-black/55"}`}
                 >
                   <Icon size={14} strokeWidth={1.8} aria-hidden="true" />
                   {category}

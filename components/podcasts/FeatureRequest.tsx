@@ -42,12 +42,12 @@ export default function FeatureRequest() {
       <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
         <div className="flex flex-col justify-between bg-primary p-6 sm:p-10 lg:p-14">
           <div>
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-white/65">
+            <p className="font-accent text-[10px] font-semibold uppercase text-white/65">
               Be part of the conversation
             </p>
             <h2
               id="feature-request-heading"
-              className="mt-3 max-w-md font-display text-4xl font-bold leading-[0.94] tracking-[-0.035em] sm:text-5xl"
+              className="mt-3 max-w-md font-display text-4xl font-bold leading-[0.94] sm:text-5xl"
             >
               Have a story worth hearing?
             </h2>
@@ -96,7 +96,7 @@ export default function FeatureRequest() {
               <button
                 type="button"
                 onClick={() => setSubmitted(false)}
-                className="mt-7 w-fit font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-accent-cyan transition-colors hover:text-white"
+                className="mt-7 w-fit font-accent text-[10px] font-semibold uppercase text-accent-cyan transition-colors hover:text-white"
               >
                 Send another request
               </button>
@@ -104,7 +104,7 @@ export default function FeatureRequest() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="border-b border-white/15 pb-5">
-                <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-cyan">
+                <p className="font-accent text-[10px] font-semibold uppercase text-accent-cyan">
                   Guest request
                 </p>
                 <h3 className="mt-2 font-display text-3xl font-bold">
@@ -113,7 +113,7 @@ export default function FeatureRequest() {
               </div>
               <div className="grid gap-6 sm:grid-cols-2">
                 <label className="block">
-                  <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">
+                  <span className="font-accent text-[10px] font-semibold uppercase text-white/55">
                     Your name
                   </span>
                   <input
@@ -125,7 +125,7 @@ export default function FeatureRequest() {
                   />
                 </label>
                 <label className="block">
-                  <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">
+                  <span className="font-accent text-[10px] font-semibold uppercase text-white/55">
                     Email address
                   </span>
                   <input
@@ -138,7 +138,7 @@ export default function FeatureRequest() {
                 </label>
               </div>
               <label className="block">
-                <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">
+                <span className="font-accent text-[10px] font-semibold uppercase text-white/55">
                   What would you talk about?
                 </span>
                 <input
@@ -150,7 +150,7 @@ export default function FeatureRequest() {
                 />
               </label>
               <label className="block">
-                <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">
+                <span className="font-accent text-[10px] font-semibold uppercase text-white/55">
                   A little more detail
                 </span>
                 <textarea
@@ -169,7 +169,7 @@ export default function FeatureRequest() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group flex items-center gap-3 bg-accent-cyan px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
+                className="group flex items-center gap-3 bg-accent-cyan px-5 py-3 font-accent text-[10px] font-semibold uppercase text-navy transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isSubmitting ? "Sending..." : "Request to be featured"}{" "}
                 {!isSubmitting ? (

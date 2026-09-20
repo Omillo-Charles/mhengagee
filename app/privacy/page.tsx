@@ -34,15 +34,15 @@ export default function PrivacyPage() {
       <section className="mx-auto max-w-[980px] px-5 pb-20 pt-10 sm:px-8 sm:pt-16 lg:px-12 lg:pt-20">
         <Link
           href="/"
-          className="flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:text-navy"
+          className="flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-primary transition-colors hover:text-navy"
         >
           <ArrowLeft size={14} /> Back home
         </Link>
         <div className="mt-12 border-b border-black/10 pb-8">
-          <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.24em] text-primary">
+          <p className="font-accent text-[10px] font-semibold uppercase text-primary">
             Mhengagee Media
           </p>
-          <h1 className="mt-4 font-display text-5xl font-bold uppercase leading-[0.9] tracking-[-0.05em] sm:text-7xl">
+          <h1 className="mt-4 font-display text-5xl font-bold uppercase leading-[0.9] sm:text-7xl">
             Privacy policy
           </h1>
           <p className="mt-5 font-sans text-sm text-black/50">
@@ -69,7 +69,7 @@ export default function PrivacyPage() {
         <div className="mt-14 border-t border-black/10 pt-6">
           <a
             href="mailto:hello@mhengagee.co.ke"
-            className="flex w-fit items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary hover:text-navy"
+            className="flex w-fit items-center gap-2 font-accent text-[10px] font-semibold uppercase text-primary hover:text-navy"
           >
             Questions about privacy <ArrowUpRight size={14} />
           </a>

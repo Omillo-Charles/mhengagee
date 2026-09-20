@@ -22,7 +22,7 @@ export default function NewsCard({ story, featured = false }: NewsCardProps) {
           className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
-        <span className="absolute left-4 top-4 bg-white px-3 py-1.5 font-accent text-[9px] font-semibold uppercase tracking-[0.16em] text-navy">
+        <span className="absolute left-4 top-4 bg-white px-3 py-1.5 font-accent text-[9px] font-semibold uppercase text-navy">
           {story.category}
         </span>
         {featured && (
@@ -32,7 +32,7 @@ export default function NewsCard({ story, featured = false }: NewsCardProps) {
         )}
       </div>
       <div className="p-5 sm:p-6">
-        <div className="flex items-center gap-2 font-accent text-[10px] uppercase tracking-[0.12em] text-black/40">
+        <div className="flex items-center gap-2 font-accent text-[10px] uppercase text-black/40">
           <span>
             {story.publishedAt
               ? new Intl.DateTimeFormat("en-US", {
@@ -49,7 +49,7 @@ export default function NewsCard({ story, featured = false }: NewsCardProps) {
           </span>
         </div>
         <h2
-          className={`mt-3 font-display font-bold leading-[1.04] tracking-[-0.025em] text-navy transition-colors group-hover:text-primary ${featured ? "text-3xl sm:text-5xl" : "text-2xl"}`}
+          className={`mt-3 font-display font-bold leading-[1.04] text-navy transition-colors group-hover:text-primary ${featured ? "text-3xl sm:text-5xl" : "text-2xl"}`}
         >
           {story.title}
         </h2>
@@ -57,7 +57,7 @@ export default function NewsCard({ story, featured = false }: NewsCardProps) {
           {story.description}
         </p>
         <div className="mt-5 flex items-center justify-between border-t border-black/10 pt-4">
-          <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-black/45">
+          <span className="font-accent text-[10px] font-semibold uppercase text-black/45">
             By {story.author}
           </span>
           <ArrowUpRight

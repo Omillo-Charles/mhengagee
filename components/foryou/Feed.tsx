@@ -61,17 +61,17 @@ export default function Feed() {
     <section id="for-you" aria-labelledby="feed-heading" className="min-w-0">
       <div className="mb-7 flex items-end justify-between gap-4 border-b border-black/10 pb-4">
         <div>
-          <p className="mb-2 font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+          <p className="mb-2 font-accent text-[10px] font-semibold uppercase text-primary">
             The daily edit
           </p>
           <h2
             id="feed-heading"
-            className="font-display text-3xl font-bold uppercase tracking-[-0.03em] text-navy sm:text-4xl"
+            className="font-display text-3xl font-bold uppercase text-navy sm:text-4xl"
           >
             For you
           </h2>
         </div>
-        <span className="hidden text-right font-accent text-[10px] uppercase tracking-[0.16em] text-black/40 sm:block">
+        <span className="hidden text-right font-accent text-[10px] uppercase text-black/40 sm:block">
           Stories worth your time
         </span>
       </div>
@@ -108,10 +108,10 @@ export default function Feed() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
-                <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-cyan">
+                <span className="font-accent text-[10px] font-semibold uppercase text-accent-cyan">
                   {featuredStory.category}
                 </span>
-                <h3 className="mt-3 max-w-2xl font-display text-3xl font-bold leading-[0.96] tracking-[-0.03em] sm:text-5xl">
+                <h3 className="mt-3 max-w-2xl font-display text-3xl font-bold leading-[0.96] sm:text-5xl">
                   {featuredStory.title}
                 </h3>
               </div>
@@ -120,7 +120,7 @@ export default function Feed() {
               <p className="max-w-xl font-sans text-sm leading-6 text-white/65">
                 {featuredStory.description}
               </p>
-              <span className="flex shrink-0 items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white">
+              <span className="flex shrink-0 items-center gap-2 font-accent text-[10px] font-semibold uppercase text-white">
                 Read story <ArrowUpRight size={15} />
               </span>
             </div>
@@ -140,16 +140,16 @@ export default function Feed() {
                   />
                 </div>
                 <div className="flex min-w-0 flex-col justify-center">
-                  <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+                  <span className="font-accent text-[10px] font-semibold uppercase text-primary">
                     {story.category}
                   </span>
-                  <h3 className="mt-2 font-display text-xl font-bold leading-[1.05] tracking-[-0.02em] text-navy transition-colors group-hover:text-primary sm:text-2xl">
+                  <h3 className="mt-2 font-display text-xl font-bold leading-[1.05] text-navy transition-colors group-hover:text-primary sm:text-2xl">
                     {story.title}
                   </h3>
                   <p className="mt-2 line-clamp-2 max-w-2xl font-sans text-sm leading-6 text-black/55">
                     {story.description}
                   </p>
-                  <span className="mt-4 flex items-center gap-2 font-accent text-[10px] uppercase tracking-[0.12em] text-black/40">
+                  <span className="mt-4 flex items-center gap-2 font-accent text-[10px] uppercase text-black/40">
                     <Clock3 size={13} />
                     {formatPublishedDate(story.publishedAt)} · {story.readTime}
                   </span>
@@ -159,7 +159,7 @@ export default function Feed() {
           </div>
           <Link
             href="/news"
-            className="group mt-8 flex w-fit items-center gap-3 border border-navy px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-navy hover:text-white"
+            className="group mt-8 flex w-fit items-center gap-3 border border-navy px-5 py-3 font-accent text-[10px] font-semibold uppercase text-navy transition-colors hover:bg-navy hover:text-white"
           >
             View more news{" "}
             <ArrowUpRight

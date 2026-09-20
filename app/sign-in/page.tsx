@@ -87,11 +87,11 @@ export default function SignInPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/10" />
           <div className="absolute bottom-0 left-0 right-0 p-10 text-white">
-            <p className="flex items-center gap-3 font-accent text-[10px] font-semibold uppercase tracking-[0.24em] text-accent-cyan">
+            <p className="flex items-center gap-3 font-accent text-[10px] font-semibold uppercase text-accent-cyan">
               <span className="h-px w-8 bg-accent-cyan" />
               Mhengagee Media
             </p>
-            <h1 className="mt-5 max-w-sm font-display text-5xl font-bold uppercase leading-[0.9] tracking-[-0.04em]">
+            <h1 className="mt-5 max-w-sm font-display text-5xl font-bold uppercase leading-[0.9]">
               Stay close to the stories.
             </h1>
             <p className="mt-5 max-w-sm font-sans text-sm leading-6 text-white/65">
@@ -114,27 +114,27 @@ export default function SignInPage() {
                 />
               </span>
               <span className="flex flex-col leading-none">
-                <span className="font-display text-base font-bold uppercase tracking-[0.14em]">
+                <span className="font-display text-base font-bold uppercase">
                   MHENGAGEE
                 </span>
-                <span className="mt-1 font-accent text-[9px] font-semibold uppercase tracking-[0.4em] text-primary">
+                <span className="mt-1 font-accent text-[9px] font-semibold uppercase text-primary">
                   Media
                 </span>
               </span>
             </Link>
             <Link
               href="/"
-              className="font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-black/45 transition-colors hover:text-primary"
+              className="font-accent text-[10px] font-semibold uppercase text-black/45 transition-colors hover:text-primary"
             >
               Back home <ArrowUpRight size={14} className="ml-1 inline" />
             </Link>
           </div>
 
           <div className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center py-12">
-            <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">
+            <p className="font-accent text-[10px] font-semibold uppercase text-primary">
               Your media desk
             </p>
-            <h2 className="mt-3 font-display text-4xl font-bold uppercase leading-none tracking-[-0.04em] text-navy sm:text-5xl">
+            <h2 className="mt-3 font-display text-4xl font-bold uppercase leading-none text-navy sm:text-5xl">
               {mode === "sign-in" ? "Welcome back." : "Join the story."}
             </h2>
             <p className="mt-4 font-sans text-sm leading-6 text-black/55">
@@ -153,7 +153,7 @@ export default function SignInPage() {
                 role="tab"
                 aria-selected={mode === "sign-in"}
                 onClick={() => switchMode("sign-in")}
-                className={`border-b-2 pb-3 text-left font-accent text-[10px] font-semibold uppercase tracking-[0.18em] transition-colors ${mode === "sign-in" ? "border-primary text-primary" : "border-transparent text-black/40 hover:text-navy"}`}
+                className={`border-b-2 pb-3 text-left font-accent text-[10px] font-semibold uppercase transition-colors ${mode === "sign-in" ? "border-primary text-primary" : "border-transparent text-black/40 hover:text-navy"}`}
               >
                 Sign in
               </button>
@@ -162,7 +162,7 @@ export default function SignInPage() {
                 role="tab"
                 aria-selected={mode === "sign-up"}
                 onClick={() => switchMode("sign-up")}
-                className={`border-b-2 pb-3 text-left font-accent text-[10px] font-semibold uppercase tracking-[0.18em] transition-colors ${mode === "sign-up" ? "border-primary text-primary" : "border-transparent text-black/40 hover:text-navy"}`}
+                className={`border-b-2 pb-3 text-left font-accent text-[10px] font-semibold uppercase transition-colors ${mode === "sign-up" ? "border-primary text-primary" : "border-transparent text-black/40 hover:text-navy"}`}
               >
                 Sign up
               </button>
@@ -181,7 +181,7 @@ export default function SignInPage() {
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="mt-5 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary hover:text-navy"
+                  className="mt-5 font-accent text-[10px] font-semibold uppercase text-primary hover:text-navy"
                 >
                   Try again
                 </button>
@@ -193,7 +193,7 @@ export default function SignInPage() {
                   onClick={() => {
                     window.location.href = authApi.googleUrl;
                   }}
-                  className="mt-7 flex w-full items-center justify-center gap-3 border border-black/15 bg-white px-5 py-3.5 font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-navy transition-colors hover:border-navy hover:bg-navy hover:text-white"
+                  className="mt-7 flex w-full items-center justify-center gap-3 border border-black/15 bg-white px-5 py-3.5 font-accent text-[10px] font-semibold uppercase text-navy transition-colors hover:border-navy hover:bg-navy hover:text-white"
                 >
                   <span className="font-display text-lg font-bold leading-none text-[#4285F4]">
                     G
@@ -202,7 +202,7 @@ export default function SignInPage() {
                 </button>
                 <div className="my-7 flex items-center gap-4">
                   <span className="h-px flex-1 bg-black/10" />
-                  <span className="font-accent text-[9px] uppercase tracking-[0.16em] text-black/35">
+                  <span className="font-accent text-[9px] uppercase text-black/35">
                     or use email
                   </span>
                   <span className="h-px flex-1 bg-black/10" />
@@ -210,7 +210,7 @@ export default function SignInPage() {
                 <form className="space-y-5" onSubmit={handleSubmit}>
                   {mode === "sign-up" && (
                     <label className="block">
-                      <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-black/50">
+                      <span className="font-accent text-[10px] font-semibold uppercase text-black/50">
                         Full name
                       </span>
                       <input
@@ -223,7 +223,7 @@ export default function SignInPage() {
                     </label>
                   )}
                   <label className="block">
-                    <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-black/50">
+                    <span className="font-accent text-[10px] font-semibold uppercase text-black/50">
                       Email address
                     </span>
                     <input
@@ -235,7 +235,7 @@ export default function SignInPage() {
                     />
                   </label>
                   <label className="block">
-                    <span className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-black/50">
+                    <span className="font-accent text-[10px] font-semibold uppercase text-black/50">
                       Password
                     </span>
                     <input
@@ -248,14 +248,14 @@ export default function SignInPage() {
                     />
                   </label>
                   <div className="flex items-center justify-between pt-2">
-                    <span className="flex items-center gap-2 font-accent text-[9px] uppercase tracking-[0.12em] text-black/40">
+                    <span className="flex items-center gap-2 font-accent text-[9px] uppercase text-black/40">
                       <Mail size={13} />
                       Secure access
                     </span>
                     {mode === "sign-in" && (
                       <Link
                         href="/forgot-password"
-                        className="font-accent text-[10px] font-semibold uppercase tracking-[0.12em] text-primary hover:text-navy"
+                        className="font-accent text-[10px] font-semibold uppercase text-primary hover:text-navy"
                       >
                         Forgot password?
                       </Link>
@@ -269,7 +269,7 @@ export default function SignInPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="group flex w-full items-center justify-center gap-3 rounded-full bg-primary px-5 py-3.5 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-navy disabled:cursor-not-allowed disabled:opacity-60"
+                    className="group flex w-full items-center justify-center gap-3 rounded-full bg-primary px-5 py-3.5 font-accent text-[10px] font-semibold uppercase text-white transition-colors hover:bg-navy disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {isSubmitting
                       ? "Working..."
@@ -286,7 +286,7 @@ export default function SignInPage() {
             )}
           </div>
 
-          <p className="text-center font-accent text-[9px] uppercase tracking-[0.12em] text-black/35">
+          <p className="text-center font-accent text-[9px] uppercase text-black/35">
             By continuing, you agree to our{" "}
             <Link href="/terms" className="text-primary hover:text-navy">
               Terms

@@ -65,12 +65,12 @@ export default function QuotePage() {
         <div className="mb-8 flex items-center justify-between border-b border-black/10 pb-4">
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-black/55 transition-colors hover:text-primary"
+            className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-black/55 transition-colors hover:text-primary"
           >
             <ArrowLeft size={14} />
             Back to portfolio
           </Link>
-          <span className="font-accent text-[10px] uppercase tracking-[0.18em] text-black/40">
+          <span className="font-accent text-[10px] uppercase text-black/40">
             Project estimate
           </span>
         </div>
@@ -87,10 +87,10 @@ export default function QuotePage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/10 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 z-10 p-6 text-white sm:p-10">
-              <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-cyan">
+              <p className="font-accent text-[10px] font-semibold uppercase text-accent-cyan">
                 Let&apos;s make it real
               </p>
-              <h1 className="mt-3 max-w-md font-display text-4xl font-bold leading-[0.94] tracking-[-0.035em] text-white sm:text-6xl">
+              <h1 className="mt-3 max-w-md font-display text-4xl font-bold leading-[0.94] text-white sm:text-6xl">
                 Tell us what you&apos;re building.
               </h1>
               <p className="mt-5 max-w-md text-sm leading-7 text-white/75">
@@ -117,7 +117,7 @@ export default function QuotePage() {
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="mt-8 w-fit font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:text-navy"
+                  className="mt-8 w-fit font-accent text-[10px] font-semibold uppercase text-primary transition-colors hover:text-navy"
                 >
                   Submit another brief
                 </button>
@@ -125,7 +125,7 @@ export default function QuotePage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="border-b border-black/10 pb-6">
-                  <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                  <p className="font-accent text-[10px] font-semibold uppercase text-primary">
                     Request a quote
                   </p>
                   <h2 className="mt-2 font-display text-3xl font-bold text-navy sm:text-4xl">
@@ -291,7 +291,7 @@ export default function QuotePage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="group flex items-center justify-center gap-3 bg-primary px-5 py-3 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-navy disabled:cursor-wait disabled:opacity-60"
+                    className="group flex items-center justify-center gap-3 bg-primary px-5 py-3 font-accent text-[10px] font-semibold uppercase text-white transition-colors hover:bg-navy disabled:cursor-wait disabled:opacity-60"
                   >
                     {isSubmitting ? "Sending..." : "Send project brief"}{" "}
                     <Send
@@ -317,7 +317,7 @@ export default function QuotePage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary hover:text-navy"
+            className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-primary hover:text-navy"
           >
             General contact <ArrowUpRight size={15} />
           </Link>

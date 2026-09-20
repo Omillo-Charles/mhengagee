@@ -27,12 +27,12 @@ export default function Trending() {
       <div className="flex items-center justify-between border-b border-black/10 pb-4">
         <h2
           id="trending-heading"
-          className="flex items-center gap-2 font-display text-2xl font-bold uppercase tracking-[-0.02em] text-navy"
+          className="flex items-center gap-2 font-display text-2xl font-bold uppercase text-navy"
         >
           <Flame size={20} className="text-secondary" />
           Trending
         </h2>
-        <span className="font-accent text-[10px] uppercase tracking-[0.16em] text-black/40">
+        <span className="font-accent text-[10px] uppercase text-black/40">
           This week
         </span>
       </div>
@@ -66,13 +66,13 @@ export default function Trending() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div className="min-w-0">
-                  <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-black/40">
+                  <p className="font-accent text-[10px] font-semibold uppercase text-black/40">
                     {story.category}
                   </p>
-                  <h3 className="mt-2 font-display text-xl font-bold leading-[1.08] tracking-[-0.02em] text-navy transition-colors group-hover:text-primary">
+                  <h3 className="mt-2 font-display text-xl font-bold leading-[1.08] text-navy transition-colors group-hover:text-primary">
                     {story.title}
                   </h3>
-                  <p className="mt-3 flex items-center gap-2 font-accent text-[10px] uppercase tracking-[0.12em] text-black/40">
+                  <p className="mt-3 flex items-center gap-2 font-accent text-[10px] uppercase text-black/40">
                     {story.readTime}{" "}
                     <ArrowUpRight
                       size={13}
@@ -87,7 +87,7 @@ export default function Trending() {
       )}
 
       <div className="mt-4 rounded-[2px] bg-primary p-5 text-white sm:p-6">
-        <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-white/65">
+        <p className="font-accent text-[10px] font-semibold uppercase text-white/65">
           Stay in the loop
         </p>
         <h3 className="mt-3 font-display text-2xl font-bold leading-tight">
@@ -99,7 +99,7 @@ export default function Trending() {
         </p>
         <button
           type="button"
-          className="mt-5 flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white"
+          className="mt-5 flex items-center gap-2 font-accent text-[10px] font-semibold uppercase text-white"
         >
           Subscribe <ArrowUpRight size={15} />
         </button>

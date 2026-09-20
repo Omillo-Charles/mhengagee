@@ -14,9 +14,9 @@ type EditorProps = {
 const inputClass =
   "mt-2 w-full border-b border-black/15 bg-transparent px-0 py-2 text-sm text-navy outline-none placeholder:text-black/35";
 const labelClass =
-  "font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-black/55";
+  "font-accent text-[10px] font-semibold uppercase text-black/55";
 const uploadClass =
-  "mt-2 block w-full cursor-pointer rounded-[2px] border border-dashed border-black/15 bg-white p-3 text-sm text-navy file:mr-3 file:rounded-[2px] file:border-0 file:bg-primary file:px-3 file:py-2 file:font-accent file:text-[9px] file:font-semibold file:uppercase file:tracking-[0.14em] file:text-white";
+  "mt-2 block w-full cursor-pointer rounded-[2px] border border-dashed border-black/15 bg-white p-3 text-sm text-navy file:mr-3 file:rounded-[2px] file:border-0 file:bg-primary file:px-3 file:py-2 file:font-accent file:text-[9px] file:font-semibold file:uppercase file:text-white";
 
 function EditorHeader({
   label,
@@ -51,14 +51,14 @@ function EditorActions({
         type="button"
         onClick={onClose}
         disabled={isSaving}
-        className="font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-black/55 hover:text-navy disabled:cursor-not-allowed disabled:opacity-50"
+        className="font-accent text-[10px] font-semibold uppercase text-black/55 hover:text-navy disabled:cursor-not-allowed disabled:opacity-50"
       >
         Cancel
       </button>
       <button
         type="submit"
         disabled={isSaving}
-        className="inline-flex items-center gap-2 bg-navy px-4 py-2.5 font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-primary disabled:cursor-wait disabled:opacity-60"
+        className="inline-flex items-center gap-2 bg-navy px-4 py-2.5 font-accent text-[10px] font-semibold uppercase text-white transition-colors hover:bg-primary disabled:cursor-wait disabled:opacity-60"
         aria-busy={isSaving}
       >
         {isSaving ? (

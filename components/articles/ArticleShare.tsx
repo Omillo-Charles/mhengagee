@@ -29,7 +29,7 @@ export default function ArticleShare({ title }: ArticleShareProps) {
       aria-label="Share article"
     >
       <div>
-        <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+        <p className="font-accent text-[10px] font-semibold uppercase text-primary">
           Pass it on
         </p>
         <p className="mt-2 font-display text-xl font-semibold text-navy">
@@ -78,7 +78,7 @@ export default function ArticleShare({ title }: ArticleShareProps) {
           type="button"
           onClick={copyLink}
           aria-label={copied ? "Article link copied" : "Copy article link"}
-          className="inline-flex h-10 items-center gap-2 rounded-full border border-primary bg-primary px-4 font-accent text-[10px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-navy"
+          className="inline-flex h-10 items-center gap-2 rounded-full border border-primary bg-primary px-4 font-accent text-[10px] font-semibold uppercase text-white transition-colors hover:bg-navy"
         >
           {copied ? <Check size={15} /> : <Copy size={15} />}
           <span>{copied ? "Copied" : "Copy link"}</span>

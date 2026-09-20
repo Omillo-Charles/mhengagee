@@ -41,7 +41,6 @@ body {
   font-family: var(--font-outfit), sans-serif;
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -71,7 +70,6 @@ body {
   font-family: var(--font-outfit), sans-serif;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -86,7 +84,6 @@ body {
   font-family: var(--font-outfit), sans-serif;
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
