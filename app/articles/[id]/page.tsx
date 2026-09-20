@@ -43,30 +43,49 @@ export default async function ArticlePage({
     notFound();
   }
 
-  const relatedStories = (await newsApi.list({ limit: 4 })).data.filter((story) => story.slug !== article.slug).slice(0, 3);
+  const relatedStories = (await newsApi.list({ limit: 4 })).data
+    .filter((story) => story.slug !== article.slug)
+    .slice(0, 3);
 
-  const body = article.content ? [article.content] : articleBodies[article.slug] ?? [
-    "The story behind this feature is rooted in the people, places, and ideas shaping the creative economy today.",
-    "By documenting the details that often go unnoticed, this work invites the reader to slow down and pay closer attention to the textures of modern life.",
-    "It is a reminder that good stories are often built from conversations, repetition, and the courage to look a little longer.",
-  ];
+  const body = article.content
+    ? [article.content]
+    : (articleBodies[article.slug] ?? [
+        "The story behind this feature is rooted in the people, places, and ideas shaping the creative economy today.",
+        "By documenting the details that often go unnoticed, this work invites the reader to slow down and pay closer attention to the textures of modern life.",
+        "It is a reminder that good stories are often built from conversations, repetition, and the courage to look a little longer.",
+      ]);
 
   return (
     <main className="min-h-screen bg-[#f5f4f0] text-navy selection:bg-primary selection:text-white">
       <article className="mx-auto max-w-[1400px] px-5 pb-20 pt-8 sm:px-8 lg:px-12 lg:pt-12">
         <div className="mb-8 flex items-center justify-between border-b border-black/10 pb-4">
-          <Link href="/news" className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-black/55 transition-colors hover:text-primary">
+          <Link
+            href="/news"
+            className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-black/55 transition-colors hover:text-primary"
+          >
             <ArrowLeft size={14} />
             Back to news
           </Link>
-          <span className="font-accent text-[10px] uppercase tracking-[0.18em] text-black/40">{article.category}</span>
+          <span className="font-accent text-[10px] uppercase tracking-[0.18em] text-black/40">
+            {article.category}
+          </span>
         </div>
 
         <header className="mx-auto max-w-[1100px]">
           <div className="mb-6 flex flex-wrap items-center gap-3 font-accent text-[10px] font-semibold uppercase tracking-[0.17em] text-black/45">
-            <span>{article.publishedAt ? new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(new Date(article.publishedAt)) : "Recently published"}</span>
+            <span>
+              {article.publishedAt
+                ? new Intl.DateTimeFormat("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  }).format(new Date(article.publishedAt))
+                : "Recently published"}
+            </span>
             <span aria-hidden="true">•</span>
-            <span className="inline-flex items-center gap-1.5"><Clock3 size={13} /> {article.readTime}</span>
+            <span className="inline-flex items-center gap-1.5">
+              <Clock3 size={13} /> {article.readTime}
+            </span>
           </div>
 
           <h1 className="max-w-4xl font-display text-4xl font-bold leading-[0.96] tracking-[-0.04em] text-navy sm:text-5xl lg:text-7xl">
@@ -75,8 +94,12 @@ export default async function ArticlePage({
 
           <div className="mt-6 flex flex-col gap-5 border-y border-black/10 py-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="font-accent text-[10px] uppercase tracking-[0.18em] text-black/45">By</p>
-              <p className="mt-2 font-display text-xl font-semibold text-navy">{article.author}</p>
+              <p className="font-accent text-[10px] uppercase tracking-[0.18em] text-black/45">
+                By
+              </p>
+              <p className="mt-2 font-display text-xl font-semibold text-navy">
+                {article.author}
+              </p>
             </div>
             <div className="rounded-full border border-black/10 bg-white px-4 py-2 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
               Story feature
@@ -99,7 +122,9 @@ export default async function ArticlePage({
 
         <div className="mx-auto mt-12 grid max-w-[1100px] gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
           <div className="space-y-6 text-[1.05rem] leading-8 text-black/70">
-            <p className="text-lg font-medium text-navy">{article.description}</p>
+            <p className="text-lg font-medium text-navy">
+              {article.description}
+            </p>
 
             {body.map((paragraph, index) => (
               <p key={`${article.id}-paragraph-${index}`}>{paragraph}</p>
@@ -108,7 +133,9 @@ export default async function ArticlePage({
 
           <aside className="lg:pt-8">
             <div className="rounded-[2px] border border-black/10 bg-white p-5 shadow-sm">
-              <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">In this story</p>
+              <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+                In this story
+              </p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-black/65">
                 <li>• Editorial perspective</li>
                 <li>• Cultural context</li>
@@ -126,10 +153,17 @@ export default async function ArticlePage({
         <section className="mx-auto mt-16 max-w-[1100px] border-t border-black/10 pt-10">
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
-              <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">More stories</p>
-              <h2 className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-navy">Continue reading</h2>
+              <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+                More stories
+              </p>
+              <h2 className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-navy">
+                Continue reading
+              </h2>
             </div>
-            <Link href="/news" className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-navy transition-colors hover:text-primary">
+            <Link
+              href="/news"
+              className="inline-flex items-center gap-2 font-accent text-[10px] font-semibold uppercase tracking-[0.18em] text-navy transition-colors hover:text-primary"
+            >
               View all news
               <ArrowUpRight size={14} />
             </Link>
@@ -137,14 +171,30 @@ export default async function ArticlePage({
 
           <div className="grid gap-6 md:grid-cols-3">
             {relatedStories.map((story) => (
-              <Link key={story.id} href={`/articles/${story.slug}`} className="group block overflow-hidden rounded-[2px] border border-black/10 bg-white transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+              <Link
+                key={story.id}
+                href={`/articles/${story.slug}`}
+                className="group block overflow-hidden rounded-[2px] border border-black/10 bg-white transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(15,23,42,0.12)]"
+              >
                 <div className="relative aspect-[4/3] overflow-hidden bg-navy">
-                  <Image src={story.coverImage} alt={story.title} fill className="object-cover object-top transition duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image
+                    src={story.coverImage}
+                    alt={story.title}
+                    fill
+                    className="object-cover object-top transition duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
                 <div className="p-5">
-                  <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">{story.category}</p>
-                  <h3 className="mt-3 font-display text-2xl font-bold leading-[1.05] tracking-[-0.02em] text-navy">{story.title}</h3>
-                  <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">{story.description}</p>
+                  <p className="font-accent text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                    {story.category}
+                  </p>
+                  <h3 className="mt-3 font-display text-2xl font-bold leading-[1.05] tracking-[-0.02em] text-navy">
+                    {story.title}
+                  </h3>
+                  <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">
+                    {story.description}
+                  </p>
                 </div>
               </Link>
             ))}

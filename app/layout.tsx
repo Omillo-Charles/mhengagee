@@ -9,10 +9,21 @@ import { AuthProvider } from "@/context/AuthContext";
 export const metadata: Metadata = {
   title: {
     default: "Mhengagee Media | Visual Excellence & Cinematic Storytelling",
-    template: "%s | Mhengagee Media"
+    template: "%s | Mhengagee Media",
   },
-  description: "A Nairobi-based creative powerhouse dedicated to crafting visual identities that demand attention through cinematic storytelling, photography, videography, and uncompromising quality.",
-  keywords: ["Photography", "Videography", "Cinematography", "Branding", "Events Coverage", "Nairobi", "Kenya", "Mhengagee Media", "Creative Agency"],
+  description:
+    "A Nairobi-based creative powerhouse dedicated to crafting visual identities that demand attention through cinematic storytelling, photography, videography, and uncompromising quality.",
+  keywords: [
+    "Photography",
+    "Videography",
+    "Cinematography",
+    "Branding",
+    "Events Coverage",
+    "Nairobi",
+    "Kenya",
+    "Mhengagee Media",
+    "Creative Agency",
+  ],
   authors: [{ name: "Mhengagee Media" }],
   creator: "Mhengagee Media",
   openGraph: {
@@ -21,7 +32,8 @@ export const metadata: Metadata = {
     url: "https://mhengagee.co.ke",
     siteName: "Mhengagee Media",
     title: "Mhengagee Media | Visual Excellence & Cinematic Storytelling",
-    description: "A Nairobi-based creative powerhouse dedicated to crafting visual identities that demand attention through cinematic storytelling and uncompromising quality.",
+    description:
+      "A Nairobi-based creative powerhouse dedicated to crafting visual identities that demand attention through cinematic storytelling and uncompromising quality.",
     images: [
       {
         url: "/images/mhenga1.jpeg",
@@ -34,7 +46,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Mhengagee Media | Visual Excellence & Cinematic Storytelling",
-    description: "A Nairobi-based creative powerhouse dedicated to crafting visual identities that demand attention through cinematic storytelling and uncompromising quality.",
+    description:
+      "A Nairobi-based creative powerhouse dedicated to crafting visual identities that demand attention through cinematic storytelling and uncompromising quality.",
     images: ["/images/mhenga1.jpeg"],
   },
   robots: {
@@ -43,13 +56,13 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   other: {
-    "google-site-verification": "Y_IcnXhgU84qpj-tlOa9lpDT_8jrFanWD1p8yLUw27M"
+    "google-site-verification": "Y_IcnXhgU84qpj-tlOa9lpDT_8jrFanWD1p8yLUw27M",
   },
 };
 
@@ -67,9 +80,7 @@ export default function RootLayout({
       <body className="antialiased flex min-h-screen flex-col">
         <AuthProvider>
           <Navbar />
-          <div className="flex-1">
-            {children}
-          </div>
+          <div className="flex-1">{children}</div>
           <Footer />
         </AuthProvider>
       </body>
